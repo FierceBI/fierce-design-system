@@ -209,7 +209,7 @@ The landing page is approximately 4000-5000px tall. For better UX, consider:
 |------|--------|-------|
 | HubSpot Form ID | `007823af-d12e-4619-8d30-89a48850d889` | Verify this is the correct production form |
 | HubSpot Portal ID | `21395487` | Verify this is the correct portal |
-| Vimeo Embed | `https://vimeo.com/1193413116` | Confirm embed permissions for Fierce domains |
+| Vimeo Embed | Unlisted video with privacy hash | Embedded with `?h=7245f18440` parameter |
 | Hosting URL | TBD | Update any absolute URLs once hosting is confirmed |
 | Video Thumbnail | Included | `assets/thumbnail-clark.png` — confirm this is final |
 
@@ -233,8 +233,10 @@ The landing page is approximately 4000-5000px tall. For better UX, consider:
 ### Video (Vimeo)
 
 ```
-https://player.vimeo.com/video/1193413116
+https://player.vimeo.com/video/1193413116?h=7245f18440
 ```
+
+Note: This is an unlisted video. The `h=` parameter is the privacy hash required for embedding.
 
 ### Form Submission (HubSpot)
 
