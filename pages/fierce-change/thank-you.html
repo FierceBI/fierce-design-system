@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You — Fierce Change® | Fierce, Inc.</title>
+    <meta name="description" content="Thank you for your interest in Fierce Change®. A Fierce team member will be in touch within 1 business day.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           DESIGN TOKENS
+           ========================================================================== */
+        :root {
+            /* Colors */
+            --color-accent: #eb7525;
+            --color-accent-hover: #d4691f;
+            --gradient-start: #f5a623;
+            --gradient-mid: #eb7525;
+            --gradient-end: #d45f10;
+            --color-bg: #ffffff;
+            --color-text: #0e0e0e;
+            --color-navy: #1C2B3A;
+            --color-muted: #888888;
+            --color-dark-bg: #0e0e0e;
+            --color-dark-text: #ffffff;
+            --color-dark-muted: rgba(255, 255, 255, 0.5);
+            --surface-section: #F5F4F1;
+            --border-light: rgba(14, 14, 14, 0.06);
+
+            /* Typography */
+            --font-serif: 'DM Serif Display', serif;
+            --font-sans: 'DM Sans', sans-serif;
+
+            /* Layout */
+            --container-max: 1200px;
+            --container-content: 800px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--color-text);
+            background: var(--color-bg);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ==========================================================================
+           NAVIGATION
+           ========================================================================== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .nav-inner {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            color: var(--color-text);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        /* ==========================================================================
+           MAIN CONTENT
+           ========================================================================== */
+        .main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 140px 40px 80px;
+        }
+
+        .thank-you-content {
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .checkmark {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 32px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .checkmark svg {
+            width: 40px;
+            height: 40px;
+            color: white;
+        }
+
+        .thank-you-headline {
+            font-family: var(--font-serif);
+            font-size: clamp(36px, 6vw, 52px);
+            color: var(--color-navy);
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .thank-you-subhead {
+            font-size: 20px;
+            color: var(--color-text);
+            line-height: 1.6;
+            margin-bottom: 48px;
+        }
+
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            margin: 0 auto 48px;
+        }
+
+        .next-steps {
+            background: var(--surface-section);
+            border-radius: 12px;
+            padding: 32px;
+            text-align: left;
+        }
+
+        .next-steps-title {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            color: var(--color-navy);
+            margin-bottom: 16px;
+        }
+
+        .next-steps-text {
+            font-size: 16px;
+            color: var(--color-text);
+            line-height: 1.7;
+        }
+
+        .next-steps-text strong {
+            color: var(--color-navy);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            font-size: 15px;
+            color: var(--color-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--color-accent);
+        }
+
+        .back-link svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 6px;
+            vertical-align: middle;
+        }
+
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
+        .footer {
+            padding: 40px;
+            border-top: 1px solid var(--border-light);
+            background: var(--color-bg);
+        }
+
+        .footer-inner {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            color: var(--color-text);
+            text-decoration: none;
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            color: var(--color-muted);
+        }
+
+        /* ==========================================================================
+           RESPONSIVE
+           ========================================================================== */
+        @media (max-width: 680px) {
+            .nav-inner {
+                padding: 16px 24px;
+            }
+
+            .main {
+                padding: 120px 24px 60px;
+            }
+
+            .checkmark {
+                width: 64px;
+                height: 64px;
+                margin-bottom: 24px;
+            }
+
+            .checkmark svg {
+                width: 32px;
+                height: 32px;
+            }
+
+            .thank-you-subhead {
+                font-size: 18px;
+                margin-bottom: 40px;
+            }
+
+            .next-steps {
+                padding: 24px;
+            }
+
+            .footer {
+                padding: 32px 24px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="https://fierceinc.com" class="logo">Fierce</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="thank-you-content">
+            <div class="checkmark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+            </div>
+
+            <h1 class="thank-you-headline">Thanks — we'll be in touch.</h1>
+            <p class="thank-you-subhead">A Fierce team member will reach out within 1 business day with program details and next steps.</p>
+
+            <div class="divider"></div>
+
+            <div class="next-steps">
+                <h2 class="next-steps-title">What happens next?</h2>
+                <p class="next-steps-text">
+                    <strong>You'll hear from a real person</strong> — not an automated sequence. We'll learn more about your organization's change challenges and share how Fierce Change® can help your leaders navigate what's ahead with confidence.
+                </p>
+            </div>
+
+            <a href="https://fierceinc.com" class="back-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back to fierceinc.com
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <a href="https://fierceinc.com" class="footer-logo">Fierce</a>
+            <p class="footer-copyright">© 2026 Fierce, Inc.</p>
+        </div>
+    </footer>
+</body>
+</html>

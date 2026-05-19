@@ -16,9 +16,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
 
-    <!-- HubSpot Forms -->
-    <script src="https://js.hsforms.net/forms/embed/21395487.js" defer></script>
-
     <style>
         /* ==========================================================================
            DESIGN TOKENS
@@ -763,21 +760,39 @@
             text-align: center;
         }
 
+        .stat-section-alt .stat-number {
+            font-size: clamp(100px, 18vw, 160px);
+        }
+
+        .stat-section-alt .stat-headline {
+            font-size: clamp(22px, 3vw, 32px);
+            max-width: 600px;
+            margin: 0 auto 12px;
+        }
+
         .stat-source {
             font-size: 14px;
             color: var(--color-dark-muted);
             font-style: italic;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         .stat-supporting {
             font-size: 17px;
             color: var(--color-dark-muted-light);
+            margin-bottom: 32px;
         }
 
         .stat-supporting .highlight {
             color: var(--color-accent);
             font-weight: 500;
+        }
+
+        .stat-accent-line {
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            margin: 0 auto;
         }
 
         /* ==========================================================================
@@ -807,7 +822,7 @@
 
         .closing-headline {
             font-family: var(--font-serif);
-            font-size: clamp(32px, 5vw, 42px);
+            font-size: clamp(36px, 6vw, 52px);
             color: var(--color-navy);
             letter-spacing: -0.02em;
             margin-bottom: 16px;
@@ -816,7 +831,7 @@
         .closing-subhead {
             font-size: 20px;
             color: var(--color-muted);
-            margin-bottom: 48px;
+            margin-bottom: 56px;
             font-style: italic;
         }
 
@@ -826,7 +841,7 @@
             color: var(--color-navy);
             letter-spacing: -0.02em;
             line-height: 1.3;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
         }
 
         .closing-followup {
@@ -834,29 +849,47 @@
             color: var(--color-text);
             line-height: 1.7;
             max-width: 600px;
-            margin: 0 auto 40px;
+            margin: 0 auto 56px;
         }
 
         .closing-divider {
-            width: 80px;
-            height: 2px;
-            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
-            margin: 0 auto 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin: 0 auto 56px;
+        }
+
+        .closing-divider::before,
+        .closing-divider::after {
+            content: '';
+            width: 60px;
+            height: 1px;
+            background: rgba(14, 14, 14, 0.15);
+        }
+
+        .closing-divider-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            flex-shrink: 0;
         }
 
         .closing-statement {
-            font-size: 20px;
+            font-family: var(--font-serif);
+            font-size: clamp(22px, 3.5vw, 28px);
             color: var(--color-navy);
-            font-style: italic;
-            line-height: 1.6;
-            max-width: 640px;
-            margin: 0 auto 48px;
+            letter-spacing: -0.01em;
+            line-height: 1.4;
+            max-width: 700px;
+            margin: 0 auto 40px;
         }
 
         .closing-cta-lead {
-            font-size: 16px;
+            font-size: 17px;
             color: var(--color-muted);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         /* ==========================================================================
@@ -994,155 +1027,6 @@
             text-align: center;
             margin-top: 20px;
             line-height: 1.6;
-        }
-
-        /* HubSpot Form Overrides */
-        .hs-form-frame {
-            max-width: 100%;
-        }
-
-        .hs-form fieldset {
-            max-width: 100% !important;
-        }
-
-        .hs-form .hs-form-field {
-            margin-bottom: 20px;
-        }
-
-        .hs-form label {
-            font-family: var(--font-sans) !important;
-            font-size: 14px !important;
-            font-weight: 500 !important;
-            color: var(--color-text) !important;
-            margin-bottom: 8px !important;
-            display: block;
-        }
-
-        .hs-form .hs-input {
-            font-family: var(--font-sans) !important;
-            font-size: 16px !important;
-            padding: 16px 18px !important;
-            border: 2px solid var(--border-default) !important;
-            border-radius: 8px !important;
-            background: var(--color-bg) !important;
-            width: 100% !important;
-            box-sizing: border-box !important;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
-            outline: none !important;
-        }
-
-        .hs-form .hs-input:hover {
-            border-color: rgba(14, 14, 14, 0.2) !important;
-        }
-
-        .hs-form .hs-input:focus {
-            border-color: var(--color-accent) !important;
-            box-shadow: var(--shadow-focus) !important;
-        }
-
-        .hs-form .hs-input::placeholder {
-            color: var(--color-muted) !important;
-        }
-
-        .hs-form select.hs-input {
-            appearance: none !important;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E") !important;
-            background-repeat: no-repeat !important;
-            background-position: right 16px center !important;
-            padding-right: 40px !important;
-            cursor: pointer !important;
-        }
-
-        .hs-form textarea.hs-input {
-            resize: vertical !important;
-            min-height: 100px !important;
-        }
-
-        .hs-form .hs-error-msgs {
-            list-style: none !important;
-            padding: 0 !important;
-            margin: 6px 0 0 0 !important;
-        }
-
-        .hs-form .hs-error-msgs li {
-            font-size: 13px !important;
-            color: var(--color-error) !important;
-        }
-
-        .hs-form .hs-input.error,
-        .hs-form .hs-input.invalid {
-            border-color: var(--color-error) !important;
-        }
-
-        .hs-form .hs-submit {
-            margin-top: 8px;
-        }
-
-        .hs-form .hs-button {
-            font-family: var(--font-sans) !important;
-            font-size: 16px !important;
-            font-weight: 600 !important;
-            width: 100% !important;
-            padding: 18px 32px !important;
-            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end)) !important;
-            color: var(--color-bg) !important;
-            border: none !important;
-            border-radius: 8px !important;
-            cursor: pointer !important;
-            transition: transform 0.15s ease, box-shadow 0.15s ease !important;
-        }
-
-        .hs-form .hs-button:hover {
-            transform: translateY(-2px) !important;
-            box-shadow: 0 8px 24px rgba(235, 117, 37, 0.3) !important;
-        }
-
-        .hs-form .hs-richtext {
-            font-family: var(--font-sans) !important;
-            font-size: 14px !important;
-            color: var(--color-muted) !important;
-        }
-
-        /* Two-column row layout for HubSpot */
-        .hs-form fieldset.form-columns-2 {
-            display: grid !important;
-            grid-template-columns: 1fr 1fr !important;
-            gap: 20px !important;
-        }
-
-        .hs-form fieldset.form-columns-2 .hs-form-field {
-            margin-bottom: 0 !important;
-        }
-
-        @media (max-width: 680px) {
-            .hs-form fieldset.form-columns-2 {
-                grid-template-columns: 1fr !important;
-            }
-        }
-
-        /* Hide UTM tracking fields from view (still captured by HubSpot) */
-        /* Target by class name patterns */
-        .hs-form .hs_utm_source,
-        .hs-form .hs_utm_campaign,
-        .hs-form .hs_utm_content,
-        .hs-form .hs_utm_medium,
-        .hs-form .hs_utm_term,
-        .hs-form .hs_gclid,
-        /* Target by partial class match */
-        .hs-form [class*="utm_source"],
-        .hs-form [class*="utm_campaign"],
-        .hs-form [class*="utm_content"],
-        .hs-form [class*="utm_medium"],
-        .hs-form [class*="utm_term"],
-        .hs-form [class*="gclid"],
-        /* Target parent containers of inputs with these names */
-        .hs-form .hs-form-field:has(input[name*="utm_source"]),
-        .hs-form .hs-form-field:has(input[name*="utm_campaign"]),
-        .hs-form .hs-form-field:has(input[name*="utm_content"]),
-        .hs-form .hs-form-field:has(input[name*="utm_medium"]),
-        .hs-form .hs-form-field:has(input[name*="utm_term"]),
-        .hs-form .hs-form-field:has(input[name*="gclid"]) {
-            display: none !important;
         }
 
         /* ==========================================================================
@@ -1627,6 +1511,7 @@
             <h2 class="stat-headline">Employees are 5x more likely to support change when they feel heard.</h2>
             <p class="stat-source">Source: Prosci</p>
             <p class="stat-supporting">Being heard is a core principle of the <span class="highlight">Fierce</span> approach.</p>
+            <div class="stat-accent-line"></div>
         </div>
     </section>
 
@@ -1639,7 +1524,9 @@
             <p class="closing-pullquote">"Change doesn't fail because people can't handle it."</p>
             <p class="closing-followup">It falls short when the way change is initiated isn't something people can trust, follow, or commit to.</p>
 
-            <div class="closing-divider"></div>
+            <div class="closing-divider">
+                <span class="closing-divider-dot"></span>
+            </div>
 
             <p class="closing-statement">Fierce Change® turns uncertainty into alignment — and alignment into action.</p>
 
@@ -1655,8 +1542,54 @@
                 <h2 class="form-headline">See if Fierce Change® is right for your organization.</h2>
                 <p class="form-subhead">Tell us a little about your team. We'll be in touch within 1 business day with program details, pricing, and next steps.</p>
             </div>
-            <!-- HubSpot Form Embed -->
-            <div class="hs-form-frame" data-region="na1" data-form-id="007823af-d12e-4619-8d30-89a48850d889" data-portal-id="21395487"></div>
+            <!-- Custom Form with HubSpot API submission -->
+            <form class="contact-form" id="contactForm" novalidate>
+                <!-- Hidden UTM tracking fields -->
+                <input type="hidden" name="utm_source" id="utm_source">
+                <input type="hidden" name="utm_campaign" id="utm_campaign">
+                <input type="hidden" name="utm_content" id="utm_content">
+                <input type="hidden" name="utm_medium" id="utm_medium">
+                <input type="hidden" name="gclid" id="gclid">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="firstName">First name</label>
+                        <input type="text" class="form-input" id="firstName" name="firstname" required autocomplete="given-name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="lastName">Last name</label>
+                        <input type="text" class="form-input" id="lastName" name="lastname" required autocomplete="family-name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="email">Work email</label>
+                    <input type="email" class="form-input" id="email" name="email" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="company">Company</label>
+                    <input type="text" class="form-input" id="company" name="company" required autocomplete="organization">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="jobtitle">Title <span class="optional">(optional)</span></label>
+                    <input type="text" class="form-input" id="jobtitle" name="jobtitle" autocomplete="organization-title">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="companySize">Company size</label>
+                    <select class="form-select" id="companySize" name="company_size" required>
+                        <option value="">Select...</option>
+                        <option value="1-50">1-50</option>
+                        <option value="51-200">51-200</option>
+                        <option value="201-1000">201-1,000</option>
+                        <option value="1001-5000">1,001-5,000</option>
+                        <option value="5000+">5,000+</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="message">What's prompting your interest in change training? <span class="optional">(optional)</span></label>
+                    <textarea class="form-textarea" id="message" name="message" rows="3" placeholder="e.g., We're going through a reorg, rolling out new tech, scaling the team..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">Request Program Details</button>
+            </form>
             <p class="form-disclaimer">We'll never share your information. You'll hear from a Fierce team member directly — not an automated sequence.</p>
         </div>
     </section>
@@ -1726,74 +1659,108 @@
             });
         });
 
-        // Convert UTM/tracking fields to hidden inputs after HubSpot form loads
-        function hideTrackingFields() {
-            const fieldsToHide = ['utm_source', 'utm_campaign', 'utm_content', 'utm_medium', 'utm_term', 'gclid'];
-
-            fieldsToHide.forEach(fieldName => {
-                // Find inputs by name attribute (exact or partial match)
-                const inputs = document.querySelectorAll(`input[name="${fieldName}"], input[name*="${fieldName}"]`);
-                inputs.forEach(input => {
-                    // Change input type to hidden
-                    input.type = 'hidden';
-
-                    // Find and remove the parent field container (which includes label)
-                    const fieldContainer = input.closest('.hs-form-field');
-                    if (fieldContainer) {
-                        // Remove the label
-                        const label = fieldContainer.querySelector('label');
-                        if (label) label.remove();
-
-                        // Hide the container but keep the input
-                        fieldContainer.style.position = 'absolute';
-                        fieldContainer.style.left = '-9999px';
-                        fieldContainer.style.width = '1px';
-                        fieldContainer.style.height = '1px';
-                        fieldContainer.style.overflow = 'hidden';
-                    }
-                });
-
-                // Also target by HubSpot's class naming convention
-                const hsFieldContainers = document.querySelectorAll(`.hs_${fieldName}`);
-                hsFieldContainers.forEach(container => {
-                    const input = container.querySelector('input');
-                    if (input) {
-                        input.type = 'hidden';
-                    }
-                    const label = container.querySelector('label');
-                    if (label) label.remove();
-
-                    container.style.position = 'absolute';
-                    container.style.left = '-9999px';
-                    container.style.width = '1px';
-                    container.style.height = '1px';
-                    container.style.overflow = 'hidden';
-                });
-            });
+        // Populate UTM fields from URL parameters
+        function getUrlParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param) || '';
         }
 
-        // Run multiple times to catch HubSpot's async form rendering
-        document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(hideTrackingFields, 100);
-            setTimeout(hideTrackingFields, 500);
-            setTimeout(hideTrackingFields, 1000);
-            setTimeout(hideTrackingFields, 2000);
-            setTimeout(hideTrackingFields, 3000);
+        document.getElementById('utm_source').value = getUrlParam('utm_source');
+        document.getElementById('utm_campaign').value = getUrlParam('utm_campaign');
+        document.getElementById('utm_content').value = getUrlParam('utm_content');
+        document.getElementById('utm_medium').value = getUrlParam('utm_medium');
+        document.getElementById('gclid').value = getUrlParam('gclid');
+
+        // Form submission to HubSpot API
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // Basic validation
+            const requiredFields = form.querySelectorAll('[required]');
+            let isValid = true;
+
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    field.classList.add('error');
+                    isValid = false;
+                } else {
+                    field.classList.remove('error');
+                }
+            });
+
+            // Email validation
+            const emailField = document.getElementById('email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailField.value)) {
+                emailField.classList.add('error');
+                isValid = false;
+            }
+
+            if (!isValid) return;
+
+            // Disable button and show loading state
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+
+            // HubSpot Forms API endpoint
+            const portalId = '21395487';
+            const formId = '007823af-d12e-4619-8d30-89a48850d889';
+            const hubspotEndpoint = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`;
+
+            // Build form data for HubSpot
+            const formData = {
+                fields: [
+                    { name: 'firstname', value: document.getElementById('firstName').value },
+                    { name: 'lastname', value: document.getElementById('lastName').value },
+                    { name: 'email', value: document.getElementById('email').value },
+                    { name: 'company', value: document.getElementById('company').value },
+                    { name: 'jobtitle', value: document.getElementById('jobtitle').value },
+                    { name: 'company_size', value: document.getElementById('companySize').value },
+                    { name: 'message', value: document.getElementById('message').value },
+                    { name: 'utm_source', value: document.getElementById('utm_source').value },
+                    { name: 'utm_campaign', value: document.getElementById('utm_campaign').value },
+                    { name: 'utm_content', value: document.getElementById('utm_content').value },
+                    { name: 'utm_medium', value: document.getElementById('utm_medium').value },
+                    { name: 'gclid', value: document.getElementById('gclid').value }
+                ],
+                context: {
+                    pageUri: window.location.href,
+                    pageName: document.title
+                }
+            };
+
+            try {
+                const response = await fetch(hubspotEndpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    // Success - redirect to thank you page
+                    window.location.href = 'thank-you.html';
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+                alert('There was an error submitting the form. Please try again or contact us directly.');
+            }
         });
 
-        // Also observe for dynamically added form elements
-        const formContainer = document.querySelector('.hs-form-frame');
-        if (formContainer) {
-            const formObserver = new MutationObserver(() => {
-                hideTrackingFields();
+        // Remove error styling on input
+        form.querySelectorAll('.form-input, .form-select, .form-textarea').forEach(field => {
+            field.addEventListener('input', () => {
+                field.classList.remove('error');
             });
-            formObserver.observe(formContainer, { childList: true, subtree: true });
-        }
-
-        // Fallback: run on window load
-        window.addEventListener('load', () => {
-            setTimeout(hideTrackingFields, 500);
-            setTimeout(hideTrackingFields, 1500);
         });
     </script>
 </body>
