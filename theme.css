@@ -1,0 +1,201 @@
+/**
+ * Fierce Design System — Consolidated Theme
+ * Extracted from fierce-sdr-tool/ on 2026-05-16
+ *
+ * This file consolidates all tokens into a single importable theme.
+ * For modular usage, import individual token files instead.
+ *
+ * Font Source: Google Fonts — include in HTML <head>:
+ * <link rel="preconnect" href="https://fonts.googleapis.com">
+ * <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ * <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+ */
+
+:root {
+    /* ==========================================================================
+       COLORS
+       ========================================================================== */
+
+    /* Primary Accent */
+    --color-accent: #eb7525;
+    --color-accent-hover: #d4691f;
+
+    /* Gradient Palette */
+    --gradient-start: #f5a623;
+    --gradient-mid: #eb7525;
+    --gradient-end: #d45f10;
+
+    /* Text Colors */
+    --color-text: #0e0e0e;
+    --color-navy: #1C2B3A;
+    --color-muted: #888888;
+
+    /* Background Colors */
+    --color-bg: #ffffff;
+    --color-text-inverse: #ffffff;
+
+    /* Surface Colors (3-tier hierarchy) */
+    --surface-interactive: #f7f7f5;
+    --surface-section: #F5F4F1;
+    --surface-card: #FAFAF8;
+
+    /* Semantic Colors */
+    --color-error: #c73e3e;
+    --color-success: #16a34a;
+
+    /* Dark Mode / Dark Sections */
+    --color-dark-bg: #0e0e0e;
+    --color-dark-text: #ffffff;
+    --color-dark-muted: rgba(255, 255, 255, 0.5);
+    --color-dark-muted-light: rgba(255, 255, 255, 0.7);
+
+    /* Border Colors */
+    --border-light: rgba(14, 14, 14, 0.06);
+    --border-default: rgba(14, 14, 14, 0.1);
+    --border-emphasis: rgba(14, 14, 14, 0.2);
+    --border-accent: rgba(235, 117, 37, 0.4);
+
+    /* Shadows */
+    --shadow-nav: 0 1px 20px rgba(0, 0, 0, 0.04);
+    --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-focus: 0 0 0 4px rgba(235, 117, 37, 0.08);
+
+
+    /* ==========================================================================
+       TYPOGRAPHY
+       ========================================================================== */
+
+    /* Font Families */
+    --font-serif: 'DM Serif Display', serif;
+    --font-sans: 'DM Sans', sans-serif;
+
+    /* Font Weights */
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+
+    /* Type Scale */
+    --text-hero: clamp(48px, 8vw, 84px);
+    --text-display: clamp(36px, 5vw, 52px);
+    --text-h1: clamp(36px, 5vw, 48px);
+    --text-h2: clamp(28px, 4vw, 42px);
+    --text-h3: 22px;
+    --text-h4: 20px;
+    --text-body: 17px;
+    --text-body-small: 15px;
+    --text-body-xs: 14px;
+    --text-caption: 13px;
+    --text-micro: 12px;
+    --text-tiny: 11px;
+
+    /* Line Heights */
+    --leading-tight: 1.08;
+    --leading-snug: 1.15;
+    --leading-medium: 1.35;
+    --leading-normal: 1.6;
+    --leading-relaxed: 1.7;
+
+    /* Letter Spacing */
+    --tracking-tight: -0.03em;
+    --tracking-snug: -0.02em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.02em;
+    --tracking-wider: 0.08em;
+    --tracking-widest: 0.12em;
+
+
+    /* ==========================================================================
+       SPACING
+       ========================================================================== */
+
+    /* Base Scale */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-10: 40px;
+    --space-12: 48px;
+    --space-16: 64px;
+    --space-20: 80px;
+    --space-24: 100px;
+    --space-28: 120px;
+    --space-32: 140px;
+    --space-36: 180px;
+
+    /* Container Widths */
+    --container-narrow: 560px;
+    --container-form: 680px;
+    --container-statement: 760px;
+    --container-content: 800px;
+    --container-wide: 1000px;
+    --container-max: 1200px;
+
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    --radius-xl: 10px;
+    --radius-2xl: 12px;
+    --radius-3xl: 16px;
+    --radius-full: 50px;
+}
+
+
+/* ==========================================================================
+   BASE STYLES
+   ========================================================================== */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    font-weight: var(--weight-regular);
+    line-height: var(--leading-normal);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ==========================================================================
+   UTILITY CLASSES
+   ========================================================================== */
+
+/* Gradient text */
+.gradient-text {
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Primary gradient background */
+.gradient-bg {
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+}
+
+/* Screen reader only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

@@ -1,0 +1,276 @@
+<!--
+    Fierce Design System — Hero Component
+    Extracted from fierce-sdr-tool/
+
+    Pattern: Full-width hero with headline, subhead, and CTA
+
+    Variants found:
+    - With watermark background
+    - With morphing word animation
+    - Standard (without animations)
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Component — Fierce Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #ffffff;
+            --color-text: #0e0e0e;
+            --color-accent: #eb7525;
+            --color-accent-hover: #d4691f;
+            --color-muted: #888888;
+            --gradient-start: #f5a623;
+            --gradient-mid: #eb7525;
+            --gradient-end: #d45f10;
+            --font-serif: 'DM Serif Display', serif;
+            --font-sans: 'DM Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--color-bg);
+            color: var(--color-text);
+        }
+
+        /* ==========================================================================
+           HERO WRAPPER
+           ========================================================================== */
+
+        .hero-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* ==========================================================================
+           WATERMARK BACKGROUND
+           ========================================================================== */
+
+        .hero-watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200vw;
+            pointer-events: none;
+            user-select: none;
+            z-index: 0;
+        }
+
+        .hero-watermark-row {
+            display: flex;
+            white-space: nowrap;
+            font-family: var(--font-serif);
+            font-size: clamp(72px, 8vw, 90px);
+            color: #0e0e0e;
+            opacity: 0.055;
+            line-height: 1.15;
+            justify-content: center;
+            gap: 0.35em;
+        }
+
+        .hero-watermark-row:nth-child(2) {
+            margin-left: -15%;
+        }
+
+        .hero-watermark-row:nth-child(3) {
+            margin-left: 10%;
+        }
+
+        /* ==========================================================================
+           HERO CONTENT
+           ========================================================================== */
+
+        .hero {
+            position: relative;
+            z-index: 1;
+            padding: 180px 40px 140px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-headline {
+            font-family: var(--font-serif);
+            font-size: clamp(48px, 8vw, 84px);
+            line-height: 1.08;
+            letter-spacing: -0.03em;
+            margin-bottom: 40px;
+        }
+
+        .hero-headline .gradient-text {
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subhead {
+            font-size: 20px;
+            line-height: 1.7;
+            color: var(--color-text);
+            max-width: 580px;
+            margin-bottom: 48px;
+        }
+
+        /* ==========================================================================
+           MORPHING WORD
+           ========================================================================== */
+
+        .morph-container {
+            margin-bottom: 56px;
+        }
+
+        .morph-label {
+            font-size: 15px;
+            color: var(--color-muted);
+            letter-spacing: 0.02em;
+            margin-right: 8px;
+        }
+
+        .morph-word {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            color: var(--color-accent);
+            display: inline-block;
+            position: relative;
+        }
+
+        .morph-word span {
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            transition: opacity 0.6s ease;
+            white-space: nowrap;
+        }
+
+        .morph-word span.active {
+            opacity: 1;
+            position: relative;
+        }
+
+        /* ==========================================================================
+           CTA BUTTON
+           ========================================================================== */
+
+        .btn {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            font-weight: 600;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--color-accent);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: var(--color-accent-hover);
+            transform: translateY(-1px);
+        }
+
+        /* ==========================================================================
+           RESPONSIVE
+           ========================================================================== */
+
+        @media (max-width: 680px) {
+            .hero {
+                padding: 140px 24px 100px;
+            }
+
+            .hero-subhead {
+                font-size: 18px;
+            }
+
+            .morph-word {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero with Watermark and Morphing Word -->
+    <div class="hero-wrapper">
+        <div class="hero-watermark" aria-hidden="true">
+            <div class="hero-watermark-row">
+                <span>Feedback</span>
+                <span>Clarity</span>
+                <span>Accountability</span>
+                <span>Trust</span>
+                <span>Candor</span>
+                <span>Delegation</span>
+            </div>
+            <div class="hero-watermark-row">
+                <span>Confrontation</span>
+                <span>Alignment</span>
+                <span>Coaching</span>
+                <span>Resilience</span>
+                <span>Listening</span>
+                <span>Ownership</span>
+            </div>
+            <div class="hero-watermark-row">
+                <span>Influence</span>
+                <span>Transparency</span>
+                <span>Courage</span>
+                <span>Presence</span>
+                <span>Vulnerability</span>
+                <span>Accountability</span>
+            </div>
+        </div>
+
+        <section class="hero">
+            <h1 class="hero-headline">
+                The <span class="gradient-text">conversation</span><br>your team isn't having.
+            </h1>
+            <p class="hero-subhead">
+                Fierce Learning Series is a free 30-minute virtual session for leaders. One module. One Friday. One conversation that changes how your team works.
+            </p>
+            <div class="morph-container">
+                <span class="morph-label">Series Topics:</span>
+                <span class="morph-word" id="morphWord">
+                    <span class="active">Feedback</span>
+                    <span>Coaching</span>
+                    <span>Confrontation</span>
+                    <span>Resilience</span>
+                    <span>Influence</span>
+                    <span>Accountability</span>
+                </span>
+            </div>
+            <a href="#rsvp" class="btn btn-primary">Reserve your seat</a>
+        </section>
+    </div>
+
+    <script>
+        // Word morphing animation
+        const morphWord = document.getElementById('morphWord');
+        const words = morphWord.querySelectorAll('span');
+        let currentIndex = 0;
+
+        function morphToNext() {
+            words[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % words.length;
+            words[currentIndex].classList.add('active');
+        }
+
+        setInterval(morphToNext, 2500);
+    </script>
+</body>
+</html>

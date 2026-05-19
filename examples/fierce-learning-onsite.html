@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fierce Comes To You — On-Site Leadership Sessions | Fierce, Inc.</title>
+    <meta name="description" content="Bring Fierce to your team. A 30-45 minute on-site leadership session that sparks the conversations your organization needs.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --color-bg: #ffffff;
+            --color-text: #0e0e0e;
+            --color-accent: #eb7525;
+            --color-accent-hover: #d4691f;
+            --color-muted: #888888;
+            --color-surface: #f7f7f5;
+            --color-error: #c73e3e;
+            --font-serif: 'DM Serif Display', serif;
+            --font-sans: 'DM Sans', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            font-size: 17px;
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: var(--color-bg);
+            border-bottom: 1px solid rgba(14, 14, 14, 0.06);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .nav.scrolled {
+            box-shadow: 0 1px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            color: var(--color-text);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .logo:hover {
+            color: var(--color-accent);
+        }
+
+        .btn {
+            font-family: var(--font-sans);
+            font-size: 15px;
+            font-weight: 500;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--color-accent);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: var(--color-accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        /* Hero */
+        .hero-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200vw;
+            pointer-events: none;
+            user-select: none;
+            z-index: 0;
+        }
+
+        .hero-watermark-row {
+            display: flex;
+            white-space: nowrap;
+            font-family: var(--font-serif);
+            font-size: clamp(72px, 8vw, 90px);
+            color: #0e0e0e;
+            opacity: 0.055;
+            line-height: 1.15;
+            justify-content: center;
+            gap: 0.35em;
+        }
+
+        .hero-watermark-row:nth-child(2) {
+            margin-left: -15%;
+        }
+
+        .hero-watermark-row:nth-child(3) {
+            margin-left: 10%;
+        }
+
+        .hero {
+            position: relative;
+            z-index: 1;
+            padding: 180px 40px 140px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-headline {
+            font-family: var(--font-serif);
+            font-size: clamp(48px, 8vw, 84px);
+            line-height: 1.08;
+            letter-spacing: -0.03em;
+            margin-bottom: 40px;
+        }
+
+        .hero-headline .gradient-text {
+            background: linear-gradient(90deg, #f5a623, #eb7525, #d45f10);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subhead {
+            font-size: 20px;
+            line-height: 1.7;
+            color: var(--color-text);
+            max-width: 580px;
+            margin-bottom: 48px;
+        }
+
+        .morph-container {
+            margin-bottom: 56px;
+        }
+
+        .morph-label {
+            font-size: 15px;
+            color: var(--color-muted);
+            letter-spacing: 0.02em;
+            margin-right: 8px;
+        }
+
+        .morph-word {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            color: var(--color-accent);
+            display: inline-block;
+            position: relative;
+        }
+
+        .morph-word span {
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            transition: opacity 0.6s ease;
+            white-space: nowrap;
+        }
+
+        .morph-word span.active {
+            opacity: 1;
+            position: relative;
+        }
+
+        /* Logo Bar */
+        .logos {
+            background: #F5F4F1;
+            padding: 80px 40px;
+        }
+
+        .logos-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .logos-label {
+            text-align: center;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--color-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 40px;
+        }
+
+        .logos-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 40px 40px;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .logos-grid img {
+            max-width: 120px;
+            max-height: 48px;
+            width: auto;
+            height: auto;
+            filter: grayscale(100%);
+            opacity: 0.7;
+        }
+
+        /* What to Expect */
+        .expect {
+            padding: 120px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .expect-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .expect-item {
+            text-align: left;
+            background: #FAFAF8;
+            padding: 32px;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .expect-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #f5a623, #eb7525, #d45f10);
+            border-radius: 12px 12px 0 0;
+        }
+
+        .expect-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 24px;
+            color: var(--color-text);
+        }
+
+        .expect-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .expect-label {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .expect-text {
+            font-size: 16px;
+            color: var(--color-muted);
+            line-height: 1.6;
+        }
+
+        /* Bold Statement Section */
+        .statement {
+            background: #0e0e0e;
+            padding: 100px 40px;
+        }
+
+        .statement-inner {
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .statement-line {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin-bottom: 48px;
+        }
+
+        .statement-line-left {
+            flex: 1;
+            height: 1px;
+            background: var(--color-accent);
+        }
+
+        .statement-line-right {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--color-accent), transparent);
+        }
+
+        .statement-text {
+            font-family: var(--font-serif);
+            font-size: clamp(28px, 4vw, 42px);
+            line-height: 1.35;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+        }
+
+        .statement-text .gradient-text {
+            background: linear-gradient(90deg, #f5a623, #eb7525, #d45f10);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .statement-line-bottom {
+            margin-top: 48px;
+            margin-bottom: 0;
+        }
+
+        /* Social Proof */
+        .proof {
+            padding: 48px 40px 100px;
+            background: #0e0e0e;
+            text-align: center;
+        }
+
+        .proof-text {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.5);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .proof-highlight {
+            color: var(--color-accent);
+            font-weight: 500;
+        }
+
+        /* RSVP Section */
+        .rsvp {
+            padding: 140px 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .rsvp-headline {
+            font-family: var(--font-serif);
+            font-size: clamp(36px, 5vw, 48px);
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .rsvp-subhead {
+            font-size: 18px;
+            color: var(--color-muted);
+            margin-bottom: 48px;
+        }
+
+        /* Session Selector */
+        .session-selector {
+            margin-bottom: 48px;
+        }
+
+        .session-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--color-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .session-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .session-option {
+            cursor: pointer;
+        }
+
+        .session-option input {
+            display: none;
+        }
+
+        .session-card {
+            border: 2px solid rgba(14, 14, 14, 0.1);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            background: var(--color-bg);
+            transition: all 0.2s ease;
+        }
+
+        .session-option input:checked + .session-card {
+            border-color: var(--color-accent);
+            background: rgba(235, 117, 37, 0.04);
+        }
+
+        .session-card:hover {
+            border-color: rgba(235, 117, 37, 0.5);
+        }
+
+        .session-topic {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            color: var(--color-text);
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .session-date {
+            font-size: 16px;
+            color: var(--color-text);
+            margin-bottom: 4px;
+        }
+
+        .session-time {
+            font-size: 15px;
+            color: var(--color-accent);
+            font-weight: 500;
+        }
+
+        /* Form */
+        .rsvp-form {
+            display: grid;
+            gap: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-label {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--color-text);
+        }
+
+        .form-label .optional {
+            color: var(--color-muted);
+            font-weight: 400;
+        }
+
+        .form-input {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            padding: 16px 18px;
+            border: 2px solid rgba(14, 14, 14, 0.1);
+            border-radius: 8px;
+            background: var(--color-bg);
+            transition: border-color 0.2s ease;
+            outline: none;
+        }
+
+        .form-input:hover {
+            border-color: rgba(14, 14, 14, 0.2);
+        }
+
+        .form-input:focus {
+            border-color: var(--color-accent);
+        }
+
+        .form-input.error {
+            border-color: var(--color-error);
+        }
+
+        .form-input::placeholder {
+            color: var(--color-muted);
+        }
+
+        select.form-input {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 40px;
+            cursor: pointer;
+        }
+
+        .error-message {
+            font-size: 13px;
+            color: var(--color-error);
+            margin-top: 6px;
+            display: none;
+        }
+
+        .form-group.has-error .error-message {
+            display: block;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 18px 28px;
+            font-size: 16px;
+            margin-top: 12px;
+        }
+
+        .btn-submit:disabled {
+            background: var(--color-muted);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Confirmation */
+        .confirmation {
+            text-align: center;
+            padding: 80px 0;
+            display: none;
+        }
+
+        .confirmation.show {
+            display: block;
+        }
+
+        .confirmation-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 24px;
+            color: var(--color-accent);
+        }
+
+        .confirmation-headline {
+            font-family: var(--font-serif);
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .confirmation-text {
+            font-size: 18px;
+            color: var(--color-muted);
+        }
+
+        .form-container.hidden {
+            display: none;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px;
+            border-top: 1px solid rgba(14, 14, 14, 0.06);
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            color: var(--color-text);
+            text-decoration: none;
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            color: var(--color-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 1000px) {
+            .logos-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 32px;
+            }
+
+            .logos-grid img {
+                max-width: 100px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .expect-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .logos-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 24px 32px;
+            }
+
+            .logos-grid img {
+                max-width: 90px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .logos-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px 24px;
+            }
+
+            .logos-grid img {
+                max-width: 80px;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .nav-inner {
+                padding: 16px 24px;
+            }
+
+            .hero {
+                padding: 140px 24px 100px;
+            }
+
+            .hero-subhead {
+                font-size: 18px;
+            }
+
+            .morph-word {
+                font-size: 24px;
+            }
+
+            .logos {
+                padding: 60px 24px;
+            }
+
+            .expect {
+                padding: 80px 24px;
+            }
+
+            .statement {
+                padding: 80px 24px;
+            }
+
+            .proof {
+                padding: 40px 24px 80px;
+            }
+
+            .rsvp {
+                padding: 100px 24px;
+            }
+
+            .session-display {
+                padding: 24px;
+            }
+
+            .session-options {
+                grid-template-columns: 1fr;
+            }
+
+            .session-card {
+                padding: 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer {
+                padding: 32px 24px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#" class="logo">Fierce</a>
+            <a href="#rsvp" class="btn btn-primary">Request a session</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="hero-wrapper">
+        <div class="hero-watermark" aria-hidden="true">
+            <div class="hero-watermark-row">
+                <span>Feedback</span>
+                <span>Clarity</span>
+                <span>Accountability</span>
+                <span>Trust</span>
+                <span>Candor</span>
+                <span>Delegation</span>
+            </div>
+            <div class="hero-watermark-row">
+                <span>Confrontation</span>
+                <span>Alignment</span>
+                <span>Coaching</span>
+                <span>Resilience</span>
+                <span>Listening</span>
+                <span>Ownership</span>
+            </div>
+            <div class="hero-watermark-row">
+                <span>Influence</span>
+                <span>Transparency</span>
+                <span>Courage</span>
+                <span>Presence</span>
+                <span>Vulnerability</span>
+                <span>Accountability</span>
+            </div>
+        </div>
+        <section class="hero">
+            <h1 class="hero-headline">
+                <span class="gradient-text">Fierce</span> comes to you.
+            </h1>
+            <p class="hero-subhead">
+                A bite-sized leadership session, delivered on-site. In 30-45 minutes, your team will experience one of Fierce's conversation frameworks — and leave ready to put it into practice.
+            </p>
+            <div class="morph-container">
+                <span class="morph-label">Topics include:</span>
+                <span class="morph-word" id="morphWord">
+                    <span class="active">Feedback</span>
+                    <span>Coaching</span>
+                    <span>Confrontation</span>
+                    <span>Resilience</span>
+                    <span>Influence</span>
+                </span>
+            </div>
+            <a href="#rsvp" class="btn btn-primary">Request a session</a>
+        </section>
+    </div>
+
+    <!-- Logo Bar -->
+    <section class="logos">
+        <div class="logos-inner">
+            <p class="logos-label">Trusted by leaders at</p>
+            <div class="logos-grid">
+                <img src="public/logos/logo1.png" alt="Marriott International">
+                <img src="public/logos/logo2.png" alt="Walt Disney">
+                <img src="public/logos/logo3.png" alt="Capital One">
+                <img src="public/logos/logo4.png" alt="Amazon">
+                <img src="public/logos/logo5.png" alt="Salesforce">
+                <img src="public/logos/logo6.png" alt="AT&T">
+                <img src="public/logos/logo7.png" alt="UCLA">
+                <img src="public/logos/logo8.png" alt="Zillow">
+                <img src="public/logos/logo9.png" alt="Nordstrom">
+                <img src="public/logos/logo10.png" alt="NBC">
+                <img src="public/logos/logo11.png" alt="Fanatics">
+                <img src="public/logos/logo12.png" alt="Verizon">
+            </div>
+        </div>
+    </section>
+
+    <!-- What to Expect -->
+    <section class="expect">
+        <div class="expect-grid">
+            <div class="expect-item">
+                <div class="expect-icon">
+                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="24" cy="24" r="20"/>
+                        <polyline points="24,12 24,24 32,28"/>
+                    </svg>
+                </div>
+                <h3 class="expect-label">30-45 minutes</h3>
+                <p class="expect-text">A focused, experiential session. No slides. No pitch. Just practice.</p>
+            </div>
+            <div class="expect-item">
+                <div class="expect-icon">
+                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="8" y="6" width="32" height="36" rx="2"/>
+                        <line x1="16" y1="14" x2="32" y2="14"/>
+                        <line x1="16" y1="22" x2="32" y2="22"/>
+                        <line x1="16" y1="30" x2="26" y2="30"/>
+                    </svg>
+                </div>
+                <h3 class="expect-label">One module</h3>
+                <p class="expect-text">Each session covers one of Fierce's 8 conversation frameworks, applied to a real leadership scenario.</p>
+            </div>
+            <div class="expect-item">
+                <div class="expect-icon">
+                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M24 4 L24 12"/>
+                        <path d="M40 24 L32 24"/>
+                        <path d="M24 44 L24 36"/>
+                        <path d="M8 24 L16 24"/>
+                        <circle cx="24" cy="24" r="8"/>
+                        <circle cx="24" cy="24" r="16"/>
+                    </svg>
+                </div>
+                <h3 class="expect-label">On-site</h3>
+                <p class="expect-text">We come to you. A Fierce facilitator delivers the session at your location, on your schedule.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bold Statement + Social Proof -->
+    <section class="statement">
+        <div class="statement-inner">
+            <div class="statement-line">
+                <div class="statement-line-left"></div>
+                <div class="statement-line-right"></div>
+            </div>
+            <p class="statement-text">
+                Most teams aren't failing because of strategy. They're failing because of the conversations <span class="gradient-text">nobody is having.</span>
+            </p>
+            <div class="statement-line statement-line-bottom">
+                <div class="statement-line-left"></div>
+                <div class="statement-line-right"></div>
+            </div>
+        </div>
+    </section>
+    <section class="proof">
+        <p class="proof-text">
+            Fierce Conversations has an <span class="proof-highlight">NPS of 70</span> and a <span class="proof-highlight">Top 20 Training Industry ranking</span>.
+        </p>
+    </section>
+
+    <!-- RSVP Section -->
+    <section class="rsvp" id="rsvp">
+        <div class="form-container" id="formContainer">
+            <h2 class="rsvp-headline">Request a session</h2>
+            <p class="rsvp-subhead">Tell us about your team and we'll reach out to schedule.</p>
+
+            <form class="rsvp-form" id="rsvpForm" novalidate>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="firstName">First name</label>
+                        <input type="text" class="form-input" id="firstName" name="firstName" required autocomplete="given-name">
+                        <span class="error-message">Please enter your first name</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="lastName">Last name</label>
+                        <input type="text" class="form-input" id="lastName" name="lastName" required autocomplete="family-name">
+                        <span class="error-message">Please enter your last name</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="email">Work email</label>
+                    <input type="email" class="form-input" id="email" name="email" required autocomplete="email">
+                    <span class="error-message">Please enter a valid work email</span>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="company">Company</label>
+                        <input type="text" class="form-input" id="company" name="company" required autocomplete="organization">
+                        <span class="error-message">Please enter your company name</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="phone">Phone</label>
+                        <input type="tel" class="form-input" id="phone" name="phone" required autocomplete="tel">
+                        <span class="error-message">Please enter your phone number</span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="attendees">Who is attending?</label>
+                        <select class="form-input" id="attendees" name="attendees" required>
+                            <option value="">Select...</option>
+                            <option value="Individual">Individual</option>
+                            <option value="Small team (2-10)">Small team (2-10)</option>
+                            <option value="Department (11-50)">Department (11-50)</option>
+                            <option value="Large group (50+)">Large group (50+)</option>
+                        </select>
+                        <span class="error-message">Please select an option</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="timeframe">Preferred timeframe</label>
+                        <select class="form-input" id="timeframe" name="timeframe" required>
+                            <option value="">Select...</option>
+                            <option value="Within 2 weeks">Within 2 weeks</option>
+                            <option value="Within 1 month">Within 1 month</option>
+                            <option value="Within 3 months">Within 3 months</option>
+                            <option value="Just exploring">Just exploring</option>
+                        </select>
+                        <span class="error-message">Please select a timeframe</span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-submit">Request a session</button>
+            </form>
+        </div>
+
+        <div class="confirmation" id="confirmation">
+            <div class="confirmation-icon">
+                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="32" cy="32" r="28"/>
+                    <polyline points="20,32 28,40 44,24"/>
+                </svg>
+            </div>
+            <h3 class="confirmation-headline">Request received.</h3>
+            <p class="confirmation-text">We'll be in touch soon to schedule your on-site session.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <a href="#" class="footer-logo">Fierce</a>
+            <p class="footer-copyright">© 2026 Fierce, Inc.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links (better iframe compatibility)
+        function smoothScrollTo(targetId) {
+            const target = document.getElementById(targetId);
+            if (!target) return;
+
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - 80;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+
+        document.querySelectorAll('a[href="#rsvp"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                smoothScrollTo('rsvp');
+                return false;
+            });
+        });
+
+        // Word morphing animation
+        const morphWord = document.getElementById('morphWord');
+        const words = morphWord.querySelectorAll('span');
+        let currentIndex = 0;
+
+        function morphToNext() {
+            words[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % words.length;
+            words[currentIndex].classList.add('active');
+        }
+
+        setInterval(morphToNext, 2500);
+
+        // HubSpot Forms API configuration
+        const HUBSPOT_PORTAL_ID = '21395487';
+        const HUBSPOT_FORM_ID = 'YOUR_ONSITE_FORM_ID_HERE'; // Replace with your new HubSpot form ID
+        const HUBSPOT_API_URL = `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_ID}`;
+
+        // Form validation and submission
+        const form = document.getElementById('rsvpForm');
+        const formContainer = document.getElementById('formContainer');
+        const confirmation = document.getElementById('confirmation');
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        function validateField(input) {
+            const formGroup = input.closest('.form-group');
+            let isValid = true;
+
+            if (input.required) {
+                if (input.type === 'email') {
+                    isValid = validateEmail(input.value);
+                } else if (input.tagName === 'SELECT') {
+                    isValid = input.value !== '';
+                } else {
+                    isValid = input.value.trim() !== '';
+                }
+            }
+
+            if (isValid) {
+                formGroup.classList.remove('has-error');
+                input.classList.remove('error');
+            } else {
+                formGroup.classList.add('has-error');
+                input.classList.add('error');
+            }
+
+            return isValid;
+        }
+
+        // Real-time validation on blur and change
+        const inputs = form.querySelectorAll('.form-input');
+        inputs.forEach(input => {
+            input.addEventListener('blur', () => {
+                if ((input.tagName === 'SELECT' ? input.value !== '' : input.value.trim() !== '') || input.required) {
+                    validateField(input);
+                }
+            });
+
+            input.addEventListener('input', () => {
+                if (input.classList.contains('error')) {
+                    validateField(input);
+                }
+            });
+
+            input.addEventListener('change', () => {
+                if (input.classList.contains('error')) {
+                    validateField(input);
+                }
+            });
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            let isFormValid = true;
+            const requiredInputs = form.querySelectorAll('.form-input[required]');
+
+            requiredInputs.forEach(input => {
+                if (!validateField(input)) {
+                    isFormValid = false;
+                }
+            });
+
+            if (!isFormValid) {
+                return;
+            }
+
+            // Disable submit button while processing
+            const submitBtn = form.querySelector('.btn-submit');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+
+            // Get HubSpot tracking cookie if available
+            function getHubSpotCookie() {
+                const name = 'hubspotutk';
+                const value = `; ${document.cookie}`;
+                const parts = value.split(`; ${name}=`);
+                if (parts.length === 2) return parts.pop().split(';').shift();
+                return null;
+            }
+
+            // Prepare HubSpot form data
+            const hutk = getHubSpotCookie();
+            // Get page URI safely (handle cross-origin iframe)
+            let pageUri;
+            try {
+                pageUri = window.top.location.href;
+            } catch (e) {
+                pageUri = window.location.href;
+            }
+
+            const formData = {
+                fields: [
+                    { name: 'firstname', value: document.getElementById('firstName').value.trim() },
+                    { name: 'lastname', value: document.getElementById('lastName').value.trim() },
+                    { name: 'email', value: document.getElementById('email').value.trim() },
+                    { name: 'company', value: document.getElementById('company').value.trim() },
+                    { name: 'phone', value: document.getElementById('phone').value.trim() },
+                    { name: 'attendees', value: document.getElementById('attendees').value },
+                    { name: 'timeframe', value: document.getElementById('timeframe').value }
+                ],
+                context: {
+                    ...(hutk && { hutk: hutk }),
+                    pageUri: pageUri,
+                    pageName: 'Fierce On-Site Session Request'
+                },
+                skipValidation: true
+            };
+
+            try {
+                const response = await fetch(HUBSPOT_API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    // Show confirmation
+                    formContainer.classList.add('hidden');
+                    confirmation.classList.add('show');
+                } else {
+                    // Handle error response
+                    console.error('HubSpot submission error:', response.status);
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalBtnText;
+
+                    // Show error message
+                    let errorDiv = form.querySelector('.form-error-message');
+                    if (!errorDiv) {
+                        errorDiv = document.createElement('div');
+                        errorDiv.className = 'form-error-message';
+                        errorDiv.style.cssText = 'color: var(--color-error); text-align: center; margin-top: 16px; font-size: 14px;';
+                        form.appendChild(errorDiv);
+                    }
+                    errorDiv.textContent = 'Something went wrong. Please try again.';
+                }
+            } catch (error) {
+                console.error('Network error:', error);
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+
+                // Show network error message
+                let errorDiv = form.querySelector('.form-error-message');
+                if (!errorDiv) {
+                    errorDiv = document.createElement('div');
+                    errorDiv.className = 'form-error-message';
+                    errorDiv.style.cssText = 'color: var(--color-error); text-align: center; margin-top: 16px; font-size: 14px;';
+                    form.appendChild(errorDiv);
+                }
+                errorDiv.textContent = 'Network error. Please check your connection and try again.';
+            }
+        });
+
+    </script>
+</body>
+</html>

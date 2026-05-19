@@ -1,0 +1,123 @@
+<!--
+    Fierce Design System — Footer Component
+    Extracted from fierce-sdr-tool/
+
+    Pattern: Simple footer with logo and copyright
+    Layout: Flexbox, space-between (desktop), column centered (mobile)
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Component — Fierce Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #ffffff;
+            --color-text: #0e0e0e;
+            --color-accent: #eb7525;
+            --color-muted: #888888;
+            --border-light: rgba(14, 14, 14, 0.06);
+            --font-serif: 'DM Serif Display', serif;
+            --font-sans: 'DM Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .component-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #666;
+            margin-bottom: 16px;
+        }
+
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
+
+        .footer {
+            padding: 40px;
+            border-top: 1px solid var(--border-light);
+            background: var(--color-bg);
+            margin-top: auto;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            color: var(--color-text);
+            text-decoration: none;
+        }
+
+        .footer-logo:hover {
+            color: var(--color-accent);
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            color: var(--color-muted);
+        }
+
+        /* ==========================================================================
+           RESPONSIVE
+           ========================================================================== */
+
+        @media (max-width: 680px) {
+            .footer {
+                padding: 32px 24px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="component-label">Footer (scroll down or resize window)</div>
+        <p>The footer is positioned at the bottom of the viewport using flexbox.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <a href="#" class="footer-logo">Fierce</a>
+            <p class="footer-copyright">© 2026 Fierce, Inc.</p>
+        </div>
+    </footer>
+</body>
+</html>

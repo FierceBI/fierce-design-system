@@ -1,0 +1,120 @@
+/**
+ * Fierce Design System — Spacing Tokens
+ * Extracted from fierce-sdr-tool/ on 2026-05-16
+ *
+ * Values derived from consistent usage patterns across source files.
+ */
+
+:root {
+    /* ==========================================================================
+       Base Spacing Scale
+       ========================================================================== */
+
+    --space-1: 4px;     /* Tight gaps, micro-adjustments */
+    --space-2: 8px;     /* Icon gaps, tight margins */
+    --space-3: 12px;    /* Small gaps between related elements */
+    --space-4: 16px;    /* Standard element spacing, input padding */
+    --space-5: 20px;    /* Form group gaps, card padding */
+    --space-6: 24px;    /* Section internal padding, card gaps */
+    --space-8: 32px;    /* Section separations */
+    --space-10: 40px;   /* Major section padding */
+    --space-12: 48px;   /* Large section gaps */
+    --space-16: 64px;   /* Hero internal spacing */
+    --space-20: 80px;   /* Major section vertical padding */
+    --space-24: 100px;  /* Large section padding */
+    --space-28: 120px;  /* Expect section padding */
+    --space-32: 140px;  /* Hero sections, RSVP sections */
+    --space-36: 180px;  /* Hero top padding (desktop) */
+
+
+    /* ==========================================================================
+       Container Widths
+       ========================================================================== */
+
+    /* Confirmation pages, centered narrow content */
+    --container-narrow: 560px;
+
+    /* Form layouts, survey pages */
+    --container-form: 680px;
+
+    /* Statement sections */
+    --container-statement: 760px;
+
+    /* Article/form sections, RSVP */
+    --container-content: 800px;
+
+    /* Logo grids */
+    --container-wide: 1000px;
+
+    /* Full-width sections, navigation */
+    --container-max: 1200px;
+
+
+    /* ==========================================================================
+       Border Radius
+       ========================================================================== */
+
+    /* Badges, small tags */
+    --radius-sm: 4px;
+
+    /* Buttons, small inputs */
+    --radius-md: 6px;
+
+    /* Standard inputs, cards */
+    --radius-lg: 8px;
+
+    /* Survey inputs */
+    --radius-xl: 10px;
+
+    /* Large cards, session cards, feature cards */
+    --radius-2xl: 12px;
+
+    /* Login container */
+    --radius-3xl: 16px;
+
+    /* Pills, circular badges */
+    --radius-full: 50px;
+
+
+    /* ==========================================================================
+       Common Padding Patterns
+       ========================================================================== */
+
+    /* Navigation padding */
+    --padding-nav: 20px 40px;
+    --padding-nav-mobile: 16px 24px;
+
+    /* Button padding variants */
+    --padding-btn-sm: 12px 20px;
+    --padding-btn-md: 14px 28px;
+    --padding-btn-lg: 16px 32px;
+    --padding-btn-xl: 18px 40px;
+
+    /* Input padding */
+    --padding-input: 16px 18px;
+
+    /* Card padding */
+    --padding-card: 24px;
+    --padding-card-lg: 32px;
+
+    /* Section padding (desktop) */
+    --padding-section: 40px;
+    --padding-section-mobile: 24px;
+
+
+    /* ==========================================================================
+       Grid Gaps
+       ========================================================================== */
+
+    /* Form row gaps */
+    --gap-form: 20px;
+
+    /* Card grid gaps */
+    --gap-card: 16px;
+
+    /* Feature grid gaps */
+    --gap-feature: 32px;
+
+    /* Logo grid gaps */
+    --gap-logo: 40px;
+}

@@ -1,0 +1,361 @@
+<!--
+    Fierce Design System — Video Phone Frame Component
+    Added 2026-05-18 for Fierce Change landing page
+
+    Pattern: Video embed wrapped in iPhone frame
+    Used for: Hero videos, testimonials, vertical video content
+
+    Specs:
+    - Portrait orientation (9:16 aspect ratio)
+    - iPhone frame from AdobeStock
+    - Vimeo embed with custom thumbnail
+    - Autoplay muted, controls visible, no loop
+    - Responsive with minimum readable size
+    - Subtle drop shadow for depth
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Phone Frame Component — Fierce Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #ffffff;
+            --color-text: #0e0e0e;
+            --color-accent: #eb7525;
+            --font-sans: 'DM Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: #f5f5f5;
+            padding: 40px;
+            min-height: 100vh;
+        }
+
+        .component-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #666;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        /* ==========================================================================
+           PHONE FRAME CONTAINER
+           ========================================================================== */
+
+        .phone-video-container {
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        /* Drop shadow beneath phone */
+        .phone-video-container::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 40px;
+            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        /* Phone frame wrapper */
+        .phone-frame {
+            position: relative;
+            width: 100%;
+            /* Aspect ratio matches SVG viewBox: 701.7 x 1444 */
+            aspect-ratio: 701.7 / 1444;
+        }
+
+        /* The SVG frame itself */
+        .phone-frame-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Video container positioned within the frame's screen area */
+        .phone-screen {
+            position: absolute;
+            /* These values position the video within the phone's screen area */
+            /* Derived from SVG path coordinates, adjusted for the inner screen */
+            top: 7.6%;
+            left: 8.2%;
+            width: 83.6%;
+            height: 85%;
+            border-radius: 32px;
+            overflow: hidden;
+            background: #000;
+            z-index: 1;
+        }
+
+        /* Video/iframe fills the screen */
+        .phone-screen iframe,
+        .phone-screen video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Custom thumbnail overlay */
+        .video-thumbnail {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            z-index: 3;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-thumbnail.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Play button overlay */
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 72px;
+            height: 72px;
+            background: rgba(235, 117, 37, 0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .play-button:hover {
+            background: var(--color-accent);
+            transform: translate(-50%, -50%) scale(1.08);
+        }
+
+        .play-button svg {
+            width: 28px;
+            height: 28px;
+            color: #ffffff;
+            margin-left: 4px; /* Visual centering for play icon */
+        }
+
+        /* ==========================================================================
+           RESPONSIVE
+           ========================================================================== */
+
+        @media (max-width: 680px) {
+            .phone-video-container {
+                max-width: 280px;
+            }
+
+            .play-button {
+                width: 60px;
+                height: 60px;
+            }
+
+            .play-button svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .phone-video-container {
+                max-width: 240px;
+            }
+        }
+
+        /* ==========================================================================
+           TWO-COLUMN LAYOUT EXAMPLE
+           ========================================================================== */
+
+        .hero-two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 40px;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 24px;
+        }
+
+        @media (max-width: 900px) {
+            .hero-two-col {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .phone-video-container {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="component-label">Video Phone Frame — Centered</div>
+
+    <!-- Phone Video Component -->
+    <div class="phone-video-container">
+        <div class="phone-frame">
+            <!-- Phone frame SVG -->
+            <svg class="phone-frame-svg" viewBox="0 0 701.7 1444" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <style>
+                        .frame-outer{fill:#e0dfdf;stroke:#747577;stroke-miterlimit:10;stroke-width:4px;}
+                        .frame-inner{fill:#070808;stroke:#989897;stroke-miterlimit:10;stroke-width:4px;}
+                        .frame-notch{fill:#12110f;}
+                        .frame-camera{fill:#1e333a;}
+                        .frame-btn{fill:url(#btn-gradient);}
+                    </style>
+                    <radialGradient id="btn-gradient" cx="50%" cy="50%" r="50%">
+                        <stop offset="0" stop-color="#fff"/>
+                        <stop offset="0.17" stop-color="#ddd"/>
+                        <stop offset="0.44" stop-color="#aaa"/>
+                        <stop offset="0.68" stop-color="#858686"/>
+                        <stop offset="0.88" stop-color="#6e6f6f"/>
+                        <stop offset="1" stop-color="#666767"/>
+                    </radialGradient>
+                </defs>
+                <!-- Side buttons -->
+                <rect class="frame-btn" x="692" y="503.7" width="9.6" height="159.59"/>
+                <rect class="frame-btn" x="0" y="353.3" width="11.9" height="69.71"/>
+                <rect class="frame-btn" x="0" y="459.7" width="11.9" height="102.73"/>
+                <rect class="frame-btn" x="0" y="583.5" width="11.9" height="104.56"/>
+                <!-- Outer frame -->
+                <path class="frame-outer" d="M588.4,2h-473.3A103.6,103.6,0,0,0,11.4,105.6V1338.4A103.6,103.6,0,0,0,115.1,1442h473.3a103.6,103.6,0,0,0,103.6-103.6V105.6A103.6,103.6,0,0,0,588.4,2Zm80.7,1331.3a83.5,83.5,0,0,1-83.5,83.5H116a83.5,83.5,0,0,1-83.5-83.5V110.7A83.5,83.5,0,0,1,116,27.2h469.6a83.5,83.5,0,0,1,83.5,83.5Z"/>
+                <!-- Inner frame -->
+                <path class="frame-inner" d="M591.1,13h-476a91.7,91.7,0,0,0-91.7,91.7V1336.5a91.6,91.6,0,0,0,91.7,91.7h476a91.6,91.6,0,0,0,91.7-91.7V104.7A91.7,91.7,0,0,0,591.1,13Zm78,1320.3a83.5,83.5,0,0,1-83.5,83.5H116a83.5,83.5,0,0,1-83.5-83.5V110.7A83.5,83.5,0,0,1,116,27.2h469.6a83.5,83.5,0,0,1,83.5,83.5Z"/>
+                <!-- Notch -->
+                <rect class="frame-notch" x="259.6" y="50.2" width="187.1" height="57.78" rx="28.9"/>
+                <!-- Camera -->
+                <circle class="frame-camera" cx="419.2" cy="79" r="14.2"/>
+            </svg>
+
+            <!-- Video screen area -->
+            <div class="phone-screen">
+                <!-- Vimeo embed -->
+                <iframe
+                    src="https://player.vimeo.com/video/1193413116?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=1&loop=0"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                    title="Fierce Change Video"
+                    id="vimeo-player"
+                    style="display: none;">
+                </iframe>
+
+                <!-- Custom thumbnail with play button -->
+                <div class="video-thumbnail" id="video-thumbnail" style="background-image: url('thumbnail-clark.png');">
+                    <div class="play-button" id="play-button">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Play video on thumbnail click
+        const thumbnail = document.getElementById('video-thumbnail');
+        const playButton = document.getElementById('play-button');
+        const iframe = document.getElementById('vimeo-player');
+
+        function playVideo() {
+            thumbnail.classList.add('hidden');
+            iframe.style.display = 'block';
+            // Trigger autoplay by reloading with autoplay param
+            iframe.src = iframe.src.replace('autoplay=0', 'autoplay=1');
+        }
+
+        thumbnail.addEventListener('click', playVideo);
+    </script>
+
+    <div style="height: 80px;"></div>
+
+    <div class="component-label">Video Phone Frame — Two Column Layout</div>
+
+    <!-- Two Column Layout Example -->
+    <div class="hero-two-col">
+        <div class="hero-content">
+            <h1>Change isn't a strategy problem.</h1>
+            <p>It's the conversation. Watch Clark explain the Fierce Change approach.</p>
+        </div>
+        <div class="phone-video-container">
+            <div class="phone-frame">
+                <svg class="phone-frame-svg" viewBox="0 0 701.7 1444" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <style>
+                            .frame-outer{fill:#e0dfdf;stroke:#747577;stroke-miterlimit:10;stroke-width:4px;}
+                            .frame-inner{fill:#070808;stroke:#989897;stroke-miterlimit:10;stroke-width:4px;}
+                            .frame-notch{fill:#12110f;}
+                            .frame-camera{fill:#1e333a;}
+                        </style>
+                    </defs>
+                    <rect fill="#888" x="692" y="503.7" width="9.6" height="159.59"/>
+                    <rect fill="#888" x="0" y="353.3" width="11.9" height="69.71"/>
+                    <rect fill="#888" x="0" y="459.7" width="11.9" height="102.73"/>
+                    <rect fill="#888" x="0" y="583.5" width="11.9" height="104.56"/>
+                    <path class="frame-outer" d="M588.4,2h-473.3A103.6,103.6,0,0,0,11.4,105.6V1338.4A103.6,103.6,0,0,0,115.1,1442h473.3a103.6,103.6,0,0,0,103.6-103.6V105.6A103.6,103.6,0,0,0,588.4,2Zm80.7,1331.3a83.5,83.5,0,0,1-83.5,83.5H116a83.5,83.5,0,0,1-83.5-83.5V110.7A83.5,83.5,0,0,1,116,27.2h469.6a83.5,83.5,0,0,1,83.5,83.5Z"/>
+                    <path class="frame-inner" d="M591.1,13h-476a91.7,91.7,0,0,0-91.7,91.7V1336.5a91.6,91.6,0,0,0,91.7,91.7h476a91.6,91.6,0,0,0,91.7-91.7V104.7A91.7,91.7,0,0,0,591.1,13Zm78,1320.3a83.5,83.5,0,0,1-83.5,83.5H116a83.5,83.5,0,0,1-83.5-83.5V110.7A83.5,83.5,0,0,1,116,27.2h469.6a83.5,83.5,0,0,1,83.5,83.5Z"/>
+                    <rect class="frame-notch" x="259.6" y="50.2" width="187.1" height="57.78" rx="28.9"/>
+                    <circle class="frame-camera" cx="419.2" cy="79" r="14.2"/>
+                </svg>
+                <div class="phone-screen">
+                    <div class="video-thumbnail" style="background-image: url('thumbnail-clark.png');">
+                        <div class="play-button">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

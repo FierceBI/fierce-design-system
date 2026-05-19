@@ -1,0 +1,141 @@
+/**
+ * Fierce Design System — Typography Tokens
+ * Extracted from fierce-sdr-tool/ on 2026-05-16
+ *
+ * Font Source: Google Fonts
+ * Include this in your HTML <head>:
+ *
+ * <link rel="preconnect" href="https://fonts.googleapis.com">
+ * <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ * <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+ */
+
+:root {
+    /* ==========================================================================
+       Font Families
+       ========================================================================== */
+
+    /* Headlines, logos, display text, pull quotes */
+    --font-serif: 'DM Serif Display', serif;
+
+    /* Body text, buttons, labels, form inputs */
+    --font-sans: 'DM Sans', sans-serif;
+
+
+    /* ==========================================================================
+       Font Weights
+       ========================================================================== */
+
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+
+
+    /* ==========================================================================
+       Type Scale
+       ========================================================================== */
+
+    /* Hero headlines — largest display text */
+    --text-hero: clamp(48px, 8vw, 84px);
+
+    /* Section headlines, confirmation headlines */
+    --text-display: clamp(36px, 5vw, 52px);
+
+    /* Page titles, form section headlines */
+    --text-h1: clamp(36px, 5vw, 48px);
+
+    /* Statement text, large quotes */
+    --text-h2: clamp(28px, 4vw, 42px);
+
+    /* Card headings, question text */
+    --text-h3: 22px;
+
+    /* Subheadings, feature labels */
+    --text-h4: 20px;
+
+    /* Default body text */
+    --text-body: 17px;
+
+    /* Secondary body text, descriptions */
+    --text-body-small: 15px;
+
+    /* Alternative small body size */
+    --text-body-xs: 14px;
+
+    /* Labels, hints, metadata */
+    --text-caption: 13px;
+
+    /* Uppercase labels, badges */
+    --text-micro: 12px;
+
+    /* Smallest text */
+    --text-tiny: 11px;
+
+
+    /* ==========================================================================
+       Line Heights
+       ========================================================================== */
+
+    /* Headlines, display text */
+    --leading-tight: 1.08;
+
+    /* Slightly more breathing room for headlines */
+    --leading-snug: 1.15;
+
+    /* Subheadings, medium text */
+    --leading-medium: 1.35;
+
+    /* Body text (default) */
+    --leading-normal: 1.6;
+
+    /* Long-form paragraphs, relaxed reading */
+    --leading-relaxed: 1.7;
+
+
+    /* ==========================================================================
+       Letter Spacing
+       ========================================================================== */
+
+    /* Large headlines — tighter tracking */
+    --tracking-tight: -0.03em;
+
+    /* Headings, display text */
+    --tracking-snug: -0.02em;
+
+    /* Body text — default */
+    --tracking-normal: 0;
+
+    /* Labels, small emphasis */
+    --tracking-wide: 0.02em;
+
+    /* Uppercase text, section labels */
+    --tracking-wider: 0.08em;
+
+    /* Badges, all-caps micro text */
+    --tracking-widest: 0.12em;
+}
+
+
+/* ==========================================================================
+   Base Typography Styles
+   Apply these to your document for consistent defaults
+   ========================================================================== */
+
+/*
+body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    font-weight: var(--weight-regular);
+    line-height: var(--leading-normal);
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: var(--weight-regular);
+    letter-spacing: var(--tracking-snug);
+    line-height: var(--leading-snug);
+}
+*/

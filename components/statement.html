@@ -1,0 +1,171 @@
+<!--
+    Fierce Design System — Statement Section Component
+    Extracted from fierce-sdr-tool/
+
+    Pattern: Dark background section with centered quote/statement
+    Used for: Bold messaging, key quotes, brand statements
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statement Section — Fierce Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-accent: #eb7525;
+            --color-dark-bg: #0e0e0e;
+            --color-dark-text: #ffffff;
+            --color-dark-muted: rgba(255, 255, 255, 0.5);
+            --gradient-start: #f5a623;
+            --gradient-mid: #eb7525;
+            --gradient-end: #d45f10;
+            --font-serif: 'DM Serif Display', serif;
+            --font-sans: 'DM Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+        }
+
+        .component-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #666;
+            padding: 40px;
+            background: #f5f5f5;
+        }
+
+        /* ==========================================================================
+           STATEMENT SECTION
+           ========================================================================== */
+
+        .statement {
+            background: var(--color-dark-bg);
+            padding: 100px 40px;
+        }
+
+        .statement-inner {
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Decorative lines */
+        .statement-line {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin-bottom: 48px;
+        }
+
+        .statement-line-left {
+            flex: 1;
+            height: 1px;
+            background: var(--color-accent);
+        }
+
+        .statement-line-right {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--color-accent), transparent);
+        }
+
+        .statement-line-bottom {
+            margin-top: 48px;
+            margin-bottom: 0;
+        }
+
+        /* Statement text */
+        .statement-text {
+            font-family: var(--font-serif);
+            font-size: clamp(28px, 4vw, 42px);
+            line-height: 1.35;
+            color: var(--color-dark-text);
+            letter-spacing: -0.02em;
+        }
+
+        .statement-text .gradient-text {
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ==========================================================================
+           SOCIAL PROOF SECTION (often paired with statement)
+           ========================================================================== */
+
+        .proof {
+            padding: 48px 40px 100px;
+            background: var(--color-dark-bg);
+            text-align: center;
+        }
+
+        .proof-text {
+            font-size: 17px;
+            color: var(--color-dark-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .proof-highlight {
+            color: var(--color-accent);
+            font-weight: 500;
+        }
+
+        /* ==========================================================================
+           RESPONSIVE
+           ========================================================================== */
+
+        @media (max-width: 680px) {
+            .statement {
+                padding: 80px 24px;
+            }
+
+            .proof {
+                padding: 40px 24px 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="component-label">Statement Section with Decorative Lines</div>
+
+    <!-- Statement Section -->
+    <section class="statement">
+        <div class="statement-inner">
+            <div class="statement-line">
+                <div class="statement-line-left"></div>
+                <div class="statement-line-right"></div>
+            </div>
+            <p class="statement-text">
+                Most teams aren't failing because of strategy. They're failing because of the conversations <span class="gradient-text">nobody is having.</span>
+            </p>
+            <div class="statement-line statement-line-bottom">
+                <div class="statement-line-left"></div>
+                <div class="statement-line-right"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof (often paired) -->
+    <section class="proof">
+        <p class="proof-text">
+            Fierce Conversations has an <span class="proof-highlight">NPS of 70</span> and a <span class="proof-highlight">Top 20 Training Industry ranking</span>.
+        </p>
+    </section>
+</body>
+</html>

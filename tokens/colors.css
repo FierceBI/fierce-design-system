@@ -1,0 +1,122 @@
+/**
+ * Fierce Design System — Color Tokens
+ * Extracted from fierce-sdr-tool/ on 2026-05-16
+ *
+ * Usage: Import this file or copy variables into your stylesheet.
+ * All values are taken directly from source files.
+ */
+
+:root {
+    /* ==========================================================================
+       Primary Accent
+       ========================================================================== */
+
+    /* Main brand orange — used on buttons, links, highlights, selected states */
+    --color-accent: #eb7525;
+
+    /* Hover/active state for accent elements */
+    --color-accent-hover: #d4691f;
+
+
+    /* ==========================================================================
+       Gradient Palette
+       Used together in: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end))
+       ========================================================================== */
+
+    --gradient-start: #f5a623;  /* Lighter orange */
+    --gradient-mid: #eb7525;    /* Primary orange */
+    --gradient-end: #d45f10;    /* Darker orange */
+
+
+    /* ==========================================================================
+       Text Colors
+       ========================================================================== */
+
+    /* Primary text color (near-black) — default for body and most headlines */
+    --color-text: #0e0e0e;
+
+    /* Fierce Navy — hero headlines, large display numbers, section headlines on colored backgrounds */
+    --color-navy: #1C2B3A;
+
+    /* Secondary/supporting text, placeholders, labels */
+    --color-muted: #888888;
+
+
+    /* ==========================================================================
+       Background Colors
+       ========================================================================== */
+
+    /* Page background */
+    --color-bg: #ffffff;
+
+    /* Text on dark or accent backgrounds */
+    --color-text-inverse: #ffffff;
+
+
+    /* ==========================================================================
+       Surface Colors
+       3-tier system for visual hierarchy
+       ========================================================================== */
+
+    /* Interactive element backgrounds: form inputs, selectable options, scale buttons, progress tracks */
+    --surface-interactive: #f7f7f5;
+
+    /* Full-width section bands: logo bar backgrounds, section dividers */
+    --surface-section: #F5F4F1;
+
+    /* Content cards within white sections: feature cards, info cards */
+    --surface-card: #FAFAF8;
+
+
+    /* ==========================================================================
+       Semantic Colors
+       ========================================================================== */
+
+    /* Error states, validation messages */
+    --color-error: #c73e3e;
+
+    /* Success states (e.g., copy confirmation) — low usage, may not be needed in marketing */
+    --color-success: #16a34a;
+
+
+    /* ==========================================================================
+       Dark Mode / Dark Sections
+       Used in statement sections and dark overlays
+       ========================================================================== */
+
+    --color-dark-bg: #0e0e0e;
+    --color-dark-text: #ffffff;
+    --color-dark-muted: rgba(255, 255, 255, 0.5);
+    --color-dark-muted-light: rgba(255, 255, 255, 0.7);
+
+
+    /* ==========================================================================
+       Border Colors
+       ========================================================================== */
+
+    /* Subtle borders: navigation, footer */
+    --border-light: rgba(14, 14, 14, 0.06);
+
+    /* Standard borders: cards, inputs at rest */
+    --border-default: rgba(14, 14, 14, 0.1);
+
+    /* Emphasized borders: hover states */
+    --border-emphasis: rgba(14, 14, 14, 0.2);
+
+    /* Accent border for selected/focused states */
+    --border-accent: rgba(235, 117, 37, 0.4);
+
+
+    /* ==========================================================================
+       Shadows
+       ========================================================================== */
+
+    /* Navigation shadow on scroll */
+    --shadow-nav: 0 1px 20px rgba(0, 0, 0, 0.04);
+
+    /* Card shadow */
+    --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+    /* Focus ring */
+    --shadow-focus: 0 0 0 4px rgba(235, 117, 37, 0.08);
+}

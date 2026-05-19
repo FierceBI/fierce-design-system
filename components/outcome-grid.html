@@ -1,0 +1,280 @@
+<!--
+    Fierce Design System — Outcome Grid Component
+    Added 2026-05-18 for Fierce Change landing page
+
+    Pattern: Three-column grid showing outcomes by audience level
+    Used for: "For Teams / For Departments / For Organizations" sections
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outcome Grid Component — Fierce Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #ffffff;
+            --color-text: #0e0e0e;
+            --color-navy: #1C2B3A;
+            --color-accent: #eb7525;
+            --color-muted: #888888;
+            --surface-card: #FAFAF8;
+            --gradient-start: #f5a623;
+            --gradient-mid: #eb7525;
+            --gradient-end: #d45f10;
+            --font-serif: 'DM Serif Display', serif;
+            --font-sans: 'DM Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: #f5f5f5;
+            padding: 40px;
+        }
+
+        .component-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #666;
+            margin-bottom: 24px;
+        }
+
+        .component-section {
+            margin-bottom: 64px;
+            background: var(--color-bg);
+            padding: 80px 40px;
+            border-radius: 12px;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 48px;
+        }
+
+        .section-headline {
+            font-family: var(--font-serif);
+            font-size: clamp(32px, 5vw, 42px);
+            color: var(--color-navy);
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+
+        .section-subhead {
+            font-size: 18px;
+            color: var(--color-muted);
+            line-height: 1.6;
+        }
+
+        /* ==========================================================================
+           OUTCOME GRID — THREE COLUMNS
+           ========================================================================== */
+
+        .outcome-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .outcome-column {
+            background: var(--surface-card);
+            padding: 32px;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        /* Gradient top accent */
+        .outcome-column::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            border-radius: 12px 12px 0 0;
+        }
+
+        .outcome-label {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            color: var(--color-text);
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+        }
+
+        .outcome-list {
+            list-style: none;
+        }
+
+        .outcome-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 16px;
+            color: var(--color-text);
+            line-height: 1.5;
+        }
+
+        .outcome-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .outcome-icon {
+            width: 20px;
+            height: 20px;
+            color: var(--color-accent);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* ==========================================================================
+           OUTCOME GRID — DARK VARIANT
+           ========================================================================== */
+
+        .component-section-dark {
+            background: var(--color-dark-bg, #0e0e0e);
+        }
+
+        .component-section-dark .section-headline {
+            color: #ffffff;
+        }
+
+        .component-section-dark .section-subhead {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .component-section-dark .outcome-column {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .component-section-dark .outcome-label {
+            color: #ffffff;
+        }
+
+        .component-section-dark .outcome-item {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* ==========================================================================
+           RESPONSIVE
+           ========================================================================== */
+
+        @media (max-width: 900px) {
+            .outcome-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .component-section {
+                padding: 60px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="component-section">
+        <div class="component-label" style="text-align: center;">Outcome Grid — Three Columns</div>
+
+        <div class="section-header">
+            <h2 class="section-headline">Built for the whole organization.</h2>
+            <p class="section-subhead">Fierce Change creates different outcomes at every level — from individual teams to the enterprise.</p>
+        </div>
+
+        <div class="outcome-grid">
+            <!-- For Teams -->
+            <div class="outcome-column">
+                <h3 class="outcome-label">For Teams</h3>
+                <ul class="outcome-list">
+                    <li class="outcome-item">
+                        <svg class="outcome-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="4,10 8,14 16,6"/>
+                        </svg>
+                        <span>Reduce confusion and fear</span>
+                    </li>
+                    <li class="outcome-item">
+                        <svg class="outcome-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="4,10 8,14 16,6"/>
+                        </svg>
+                        <span>Strengthen communication</span>
+                    </li>
+                    <li class="outcome-item">
+                        <svg class="outcome-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="4,10 8,14 16,6"/>
+                        </svg>
+                        <span>Build shared ownership</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- For Departments -->
+            <div class="outcome-column">
+                <h3 class="outcome-label">For Departments</h3>
+                <ul class="outcome-list">
+                    <li class="outcome-item">
+                        <svg class="outcome-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="4,10 8,14 16,6"/>
+                        </svg>
+                        <span>Align leaders around a unified message</span>
+                    </li>
+                    <li class="outcome-item">
+                        <svg class="outcome-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="4,10 8,14 16,6"/>
+                        </svg>
+                        <span>Surface resistance early</span>
+                    </li>
+                    <li class="outcome-item">
+                        <svg class="outcome-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="4,10 8,14 16,6"/>
+                        </svg>
+                        <span>Improve cross-functional execution</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- For Organizations -->
+            <div class="outcome-column">
+                <h3 class="outcome-label">For Organizations</h3>
+                <ul class="outcome-list">
+                    <li class="outcome-item">
+                        <svg class="outcome-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="4,10 8,14 16,6"/>
+                        </svg>
+                        <span>Increase adoption</span>
+                    </li>
+                    <li class="outcome-item">
+                        <svg class="outcome-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="4,10 8,14 16,6"/>
+                        </svg>
+                        <span>Reduce change fatigue</span>
+                    </li>
+                    <li class="outcome-item">
+                        <svg class="outcome-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="4,10 8,14 16,6"/>
+                        </svg>
+                        <span>Accelerate results</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

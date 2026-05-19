@@ -1,0 +1,1800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fierce Change® — A Conversation-Powered Approach to Change | Fierce, Inc.</title>
+    <meta name="description" content="Change isn't a strategy problem. It's the conversation. Fierce Change® is a new training program that helps leaders navigate reorgs, AI rollouts, and growth — without losing their people along the way.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Fierce Change® — A new program for leaders navigating change.">
+    <meta property="og:description" content="Change isn't a strategy problem. It's the conversation. Fierce Change® is a new training program that helps leaders navigate reorgs, AI rollouts, and growth — without losing their people along the way.">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+    <!-- HubSpot Forms -->
+    <script src="https://js.hsforms.net/forms/embed/21395487.js" defer></script>
+
+    <style>
+        /* ==========================================================================
+           DESIGN TOKENS
+           ========================================================================== */
+        :root {
+            /* Colors */
+            --color-accent: #eb7525;
+            --color-accent-hover: #d4691f;
+            --gradient-start: #f5a623;
+            --gradient-mid: #eb7525;
+            --gradient-end: #d45f10;
+
+            --color-text: #0e0e0e;
+            --color-navy: #1C2B3A;
+            --color-muted: #888888;
+            --color-bg: #ffffff;
+            --color-text-inverse: #ffffff;
+
+            --surface-interactive: #f7f7f5;
+            --surface-section: #F5F4F1;
+            --surface-card: #FAFAF8;
+
+            --color-dark-bg: #0e0e0e;
+            --color-dark-text: #ffffff;
+            --color-dark-muted: rgba(255, 255, 255, 0.5);
+            --color-dark-muted-light: rgba(255, 255, 255, 0.7);
+
+            --border-light: rgba(14, 14, 14, 0.06);
+            --border-default: rgba(14, 14, 14, 0.1);
+            --color-error: #c73e3e;
+
+            --shadow-nav: 0 1px 20px rgba(0, 0, 0, 0.04);
+            --shadow-focus: 0 0 0 4px rgba(235, 117, 37, 0.08);
+
+            /* Typography */
+            --font-serif: 'DM Serif Display', serif;
+            --font-sans: 'DM Sans', sans-serif;
+
+            /* Spacing */
+            --container-max: 1200px;
+            --container-content: 800px;
+            --container-narrow: 600px;
+        }
+
+        /* ==========================================================================
+           BASE STYLES
+           ========================================================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            font-size: 17px;
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ==========================================================================
+           NAVIGATION
+           ========================================================================== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: var(--color-bg);
+            border-bottom: 1px solid var(--border-light);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .nav.scrolled {
+            box-shadow: var(--shadow-nav);
+        }
+
+        .nav-inner {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            color: var(--color-text);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .logo:hover {
+            color: var(--color-accent);
+        }
+
+        /* ==========================================================================
+           BUTTONS
+           ========================================================================== */
+        .btn {
+            font-family: var(--font-sans);
+            font-size: 15px;
+            font-weight: 600;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--color-accent);
+            color: var(--color-text-inverse);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-large {
+            padding: 18px 40px;
+            font-size: 16px;
+        }
+
+        /* ==========================================================================
+           SECTION 1: HERO
+           ========================================================================== */
+        .hero {
+            padding: 160px 40px 100px;
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 640px;
+        }
+
+        .hero-eyebrow {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--color-accent);
+            margin-bottom: 20px;
+        }
+
+        .hero-headline {
+            font-family: var(--font-serif);
+            font-size: clamp(42px, 6vw, 64px);
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            color: var(--color-navy);
+            margin-bottom: 8px;
+        }
+
+        .hero-subhead {
+            font-family: var(--font-serif);
+            font-size: clamp(28px, 4vw, 42px);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+        }
+
+        .hero-subhead .gradient-text {
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--color-text);
+            margin-bottom: 32px;
+            max-width: 540px;
+        }
+
+        /* Phone Video Container */
+        .hero-video {
+            display: flex;
+            justify-content: center;
+        }
+
+        .phone-video-container {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .phone-video-container::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 40px;
+            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.12) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .phone-frame {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 701.7 / 1444;
+        }
+
+        .phone-frame-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .phone-screen {
+            position: absolute;
+            top: 7.6%;
+            left: 8.2%;
+            width: 83.6%;
+            height: 85%;
+            border-radius: 32px;
+            overflow: hidden;
+            background: #000;
+            z-index: 1;
+        }
+
+        .phone-screen iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-thumbnail {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            z-index: 3;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-thumbnail.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 72px;
+            height: 72px;
+            background: rgba(235, 117, 37, 0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .play-button:hover {
+            background: var(--color-accent);
+            transform: translate(-50%, -50%) scale(1.08);
+        }
+
+        .play-button svg {
+            width: 28px;
+            height: 28px;
+            color: #ffffff;
+            margin-left: 4px;
+        }
+
+        /* ==========================================================================
+           SECTION 2: THE PROBLEM (70% Stat)
+           ========================================================================== */
+        .stat-section {
+            position: relative;
+            background: var(--color-dark-bg);
+            padding: 100px 40px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .stat-watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200vw;
+            pointer-events: none;
+            user-select: none;
+            z-index: 0;
+        }
+
+        .stat-watermark-row {
+            display: flex;
+            white-space: nowrap;
+            font-family: var(--font-serif);
+            color: #ffffff;
+            opacity: 0.08;
+            line-height: 1.2;
+            justify-content: center;
+            gap: 0.5em;
+        }
+
+        .stat-watermark-row:nth-child(1) {
+            font-size: clamp(48px, 6vw, 72px);
+        }
+
+        .stat-watermark-row:nth-child(2) {
+            font-size: clamp(56px, 7vw, 84px);
+            margin-left: -20%;
+        }
+
+        .stat-watermark-row:nth-child(3) {
+            font-size: clamp(40px, 5vw, 60px);
+            margin-left: 15%;
+        }
+
+        .stat-watermark-row:nth-child(4) {
+            font-size: clamp(52px, 6.5vw, 78px);
+            margin-left: -10%;
+        }
+
+        .stat-content {
+            position: relative;
+            z-index: 1;
+            max-width: var(--container-content);
+            margin: 0 auto;
+        }
+
+        .stat-number {
+            font-family: var(--font-serif);
+            font-size: clamp(80px, 15vw, 140px);
+            line-height: 1;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-headline {
+            font-family: var(--font-serif);
+            font-size: clamp(28px, 4vw, 42px);
+            line-height: 1.2;
+            color: var(--color-dark-text);
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .stat-subhead {
+            font-size: 20px;
+            color: var(--color-dark-muted-light);
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .stat-body {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--color-dark-muted-light);
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .stat-body strong {
+            color: var(--color-dark-text);
+            font-weight: 500;
+        }
+
+        /* ==========================================================================
+           SECTION 3: THE APPROACH
+           ========================================================================== */
+        .approach-section {
+            padding: 120px 40px;
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+
+        .approach-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 56px;
+        }
+
+        .approach-headline {
+            font-family: var(--font-serif);
+            font-size: clamp(32px, 5vw, 42px);
+            color: var(--color-navy);
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+
+        .approach-subhead {
+            font-size: 18px;
+            color: var(--color-muted);
+            line-height: 1.7;
+        }
+
+        .approach-intro {
+            text-align: center;
+            font-size: 18px;
+            color: var(--color-text);
+            max-width: 700px;
+            margin: 0 auto 48px;
+        }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .approach-card {
+            background: var(--surface-card);
+            padding: 32px;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .approach-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            border-radius: 12px 12px 0 0;
+        }
+
+        .approach-card-title {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            color: var(--color-text);
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .approach-card-text {
+            font-size: 16px;
+            color: var(--color-muted);
+            line-height: 1.6;
+        }
+
+        /* ==========================================================================
+           SECTION 4: PULL QUOTE
+           ========================================================================== */
+        .pullquote-section {
+            background: var(--color-dark-bg);
+            padding: 100px 40px;
+        }
+
+        .pullquote {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .pullquote-line {
+            display: flex;
+            align-items: center;
+            margin-bottom: 48px;
+        }
+
+        .pullquote-line-left {
+            flex: 1;
+            height: 1px;
+            background: var(--color-accent);
+        }
+
+        .pullquote-line-right {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--color-accent), transparent);
+        }
+
+        .pullquote-line-bottom {
+            margin-top: 48px;
+            margin-bottom: 32px;
+        }
+
+        .pullquote-text {
+            font-family: var(--font-serif);
+            font-size: clamp(22px, 3vw, 32px);
+            line-height: 1.45;
+            color: var(--color-dark-text);
+            letter-spacing: -0.02em;
+            font-style: italic;
+        }
+
+        .pullquote-attribution {
+            text-align: center;
+        }
+
+        .pullquote-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-dark-text);
+            margin-bottom: 4px;
+        }
+
+        .pullquote-title {
+            font-size: 14px;
+            color: var(--color-dark-muted);
+        }
+
+        /* ==========================================================================
+           SECTION 5: WHAT TEAMS LEARN
+           ========================================================================== */
+        .curriculum-section {
+            padding: 120px 40px;
+            background: var(--surface-section);
+        }
+
+        .curriculum-inner {
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+
+        .curriculum-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .curriculum-headline {
+            font-family: var(--font-serif);
+            font-size: clamp(32px, 5vw, 42px);
+            color: var(--color-navy);
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+
+        .curriculum-subhead {
+            font-size: 18px;
+            color: var(--color-muted);
+            line-height: 1.6;
+        }
+
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        /* First row: 2 cards */
+        .curriculum-card:nth-child(1),
+        .curriculum-card:nth-child(2) {
+            grid-column: span 1;
+        }
+
+        /* Second row: 3 cards - handled by default */
+
+        /* Reorder to get 2-3 layout */
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 24px;
+        }
+
+        .curriculum-card:nth-child(1),
+        .curriculum-card:nth-child(2) {
+            grid-column: span 3;
+        }
+
+        .curriculum-card:nth-child(3),
+        .curriculum-card:nth-child(4),
+        .curriculum-card:nth-child(5) {
+            grid-column: span 2;
+        }
+
+        .curriculum-card {
+            background: var(--color-bg);
+            border: 1px solid rgba(14, 14, 14, 0.08);
+            border-radius: 12px;
+            padding: 32px;
+        }
+
+        .curriculum-number {
+            font-family: var(--font-serif);
+            font-size: 48px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+
+        .curriculum-title {
+            font-family: var(--font-sans);
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .curriculum-text {
+            font-size: 16px;
+            color: var(--color-muted);
+            line-height: 1.5;
+        }
+
+        /* ==========================================================================
+           SECTION 6: OUTCOMES BY LEVEL
+           ========================================================================== */
+        .outcomes-section {
+            padding: 120px 40px;
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+
+        .outcomes-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 56px;
+        }
+
+        .outcomes-headline {
+            font-family: var(--font-serif);
+            font-size: clamp(32px, 5vw, 42px);
+            color: var(--color-navy);
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+
+        .outcomes-subhead {
+            font-size: 18px;
+            color: var(--color-muted);
+            line-height: 1.6;
+        }
+
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .outcome-column {
+            background: var(--surface-card);
+            padding: 32px;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .outcome-column::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            border-radius: 12px 12px 0 0;
+        }
+
+        .outcome-label {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            color: var(--color-text);
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+        }
+
+        .outcome-list {
+            list-style: none;
+        }
+
+        .outcome-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 16px;
+            color: var(--color-text);
+            line-height: 1.5;
+        }
+
+        .outcome-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .outcome-icon {
+            width: 20px;
+            height: 20px;
+            color: var(--color-accent);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* ==========================================================================
+           SECTION 7: 5X STAT
+           ========================================================================== */
+        .stat-section-alt {
+            background: var(--color-dark-bg);
+            padding: 100px 40px;
+            text-align: center;
+        }
+
+        .stat-source {
+            font-size: 14px;
+            color: var(--color-dark-muted);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .stat-supporting {
+            font-size: 17px;
+            color: var(--color-dark-muted-light);
+        }
+
+        .stat-supporting .highlight {
+            color: var(--color-accent);
+            font-weight: 500;
+        }
+
+        /* ==========================================================================
+           SECTION 8: BOTTOM LINE / CLOSING
+           ========================================================================== */
+        .closing-wrapper {
+            background: var(--surface-card);
+            position: relative;
+        }
+
+        .closing-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+        }
+
+        .closing-section {
+            padding: 120px 40px;
+            max-width: var(--container-content);
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .closing-headline {
+            font-family: var(--font-serif);
+            font-size: clamp(32px, 5vw, 42px);
+            color: var(--color-navy);
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+
+        .closing-subhead {
+            font-size: 20px;
+            color: var(--color-muted);
+            margin-bottom: 48px;
+            font-style: italic;
+        }
+
+        .closing-pullquote {
+            font-family: var(--font-serif);
+            font-size: clamp(24px, 4vw, 32px);
+            color: var(--color-navy);
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .closing-followup {
+            font-size: 18px;
+            color: var(--color-text);
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .closing-divider {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            margin: 0 auto 40px;
+        }
+
+        .closing-statement {
+            font-size: 20px;
+            color: var(--color-navy);
+            font-style: italic;
+            line-height: 1.6;
+            max-width: 640px;
+            margin: 0 auto 48px;
+        }
+
+        .closing-cta-lead {
+            font-size: 16px;
+            color: var(--color-muted);
+            margin-bottom: 20px;
+        }
+
+        /* ==========================================================================
+           SECTION 9: FORM
+           ========================================================================== */
+        .form-section {
+            padding: 120px 40px;
+            background: var(--surface-section);
+        }
+
+        .form-inner {
+            max-width: var(--container-narrow);
+            margin: 0 auto;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-headline {
+            font-family: var(--font-serif);
+            font-size: clamp(28px, 4vw, 36px);
+            color: var(--color-navy);
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .form-subhead {
+            font-size: 17px;
+            color: var(--color-muted);
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-label {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--color-text);
+        }
+
+        .form-label .optional {
+            color: var(--color-muted);
+            font-weight: 400;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            padding: 16px 18px;
+            border: 2px solid var(--border-default);
+            border-radius: 8px;
+            background: var(--color-bg);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            outline: none;
+        }
+
+        .form-input:hover,
+        .form-select:hover,
+        .form-textarea:hover {
+            border-color: rgba(14, 14, 14, 0.2);
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            border-color: var(--color-accent);
+            box-shadow: var(--shadow-focus);
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: var(--color-muted);
+        }
+
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 40px;
+            cursor: pointer;
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-input.error,
+        .form-select.error,
+        .form-textarea.error {
+            border-color: var(--color-error);
+        }
+
+        .error-message {
+            font-size: 13px;
+            color: var(--color-error);
+            margin-top: 6px;
+            display: none;
+        }
+
+        .form-group.has-error .error-message {
+            display: block;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 18px 32px;
+            font-size: 16px;
+            margin-top: 8px;
+        }
+
+        .form-disclaimer {
+            font-size: 13px;
+            color: var(--color-muted);
+            text-align: center;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        /* HubSpot Form Overrides */
+        .hs-form-frame {
+            max-width: 100%;
+        }
+
+        .hs-form fieldset {
+            max-width: 100% !important;
+        }
+
+        .hs-form .hs-form-field {
+            margin-bottom: 20px;
+        }
+
+        .hs-form label {
+            font-family: var(--font-sans) !important;
+            font-size: 14px !important;
+            font-weight: 500 !important;
+            color: var(--color-text) !important;
+            margin-bottom: 8px !important;
+            display: block;
+        }
+
+        .hs-form .hs-input {
+            font-family: var(--font-sans) !important;
+            font-size: 16px !important;
+            padding: 16px 18px !important;
+            border: 2px solid var(--border-default) !important;
+            border-radius: 8px !important;
+            background: var(--color-bg) !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+            outline: none !important;
+        }
+
+        .hs-form .hs-input:hover {
+            border-color: rgba(14, 14, 14, 0.2) !important;
+        }
+
+        .hs-form .hs-input:focus {
+            border-color: var(--color-accent) !important;
+            box-shadow: var(--shadow-focus) !important;
+        }
+
+        .hs-form .hs-input::placeholder {
+            color: var(--color-muted) !important;
+        }
+
+        .hs-form select.hs-input {
+            appearance: none !important;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E") !important;
+            background-repeat: no-repeat !important;
+            background-position: right 16px center !important;
+            padding-right: 40px !important;
+            cursor: pointer !important;
+        }
+
+        .hs-form textarea.hs-input {
+            resize: vertical !important;
+            min-height: 100px !important;
+        }
+
+        .hs-form .hs-error-msgs {
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 6px 0 0 0 !important;
+        }
+
+        .hs-form .hs-error-msgs li {
+            font-size: 13px !important;
+            color: var(--color-error) !important;
+        }
+
+        .hs-form .hs-input.error,
+        .hs-form .hs-input.invalid {
+            border-color: var(--color-error) !important;
+        }
+
+        .hs-form .hs-submit {
+            margin-top: 8px;
+        }
+
+        .hs-form .hs-button {
+            font-family: var(--font-sans) !important;
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            width: 100% !important;
+            padding: 18px 32px !important;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end)) !important;
+            color: var(--color-bg) !important;
+            border: none !important;
+            border-radius: 8px !important;
+            cursor: pointer !important;
+            transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+        }
+
+        .hs-form .hs-button:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 24px rgba(235, 117, 37, 0.3) !important;
+        }
+
+        .hs-form .hs-richtext {
+            font-family: var(--font-sans) !important;
+            font-size: 14px !important;
+            color: var(--color-muted) !important;
+        }
+
+        /* Two-column row layout for HubSpot */
+        .hs-form fieldset.form-columns-2 {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 20px !important;
+        }
+
+        .hs-form fieldset.form-columns-2 .hs-form-field {
+            margin-bottom: 0 !important;
+        }
+
+        @media (max-width: 680px) {
+            .hs-form fieldset.form-columns-2 {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        /* Hide UTM tracking fields from view (still captured by HubSpot) */
+        /* Target by class name patterns */
+        .hs-form .hs_utm_source,
+        .hs-form .hs_utm_campaign,
+        .hs-form .hs_utm_content,
+        .hs-form .hs_utm_medium,
+        .hs-form .hs_utm_term,
+        .hs-form .hs_gclid,
+        /* Target by partial class match */
+        .hs-form [class*="utm_source"],
+        .hs-form [class*="utm_campaign"],
+        .hs-form [class*="utm_content"],
+        .hs-form [class*="utm_medium"],
+        .hs-form [class*="utm_term"],
+        .hs-form [class*="gclid"],
+        /* Target parent containers of inputs with these names */
+        .hs-form .hs-form-field:has(input[name*="utm_source"]),
+        .hs-form .hs-form-field:has(input[name*="utm_campaign"]),
+        .hs-form .hs-form-field:has(input[name*="utm_content"]),
+        .hs-form .hs-form-field:has(input[name*="utm_medium"]),
+        .hs-form .hs-form-field:has(input[name*="utm_term"]),
+        .hs-form .hs-form-field:has(input[name*="gclid"]) {
+            display: none !important;
+        }
+
+        /* ==========================================================================
+           SECTION 10: FOOTER / TRUST BAR
+           ========================================================================== */
+        .trust-bar {
+            padding: 60px 40px;
+            background: var(--color-dark-bg);
+        }
+
+        .trust-inner {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            font-size: 14px;
+            color: var(--color-dark-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .trust-item .highlight {
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+
+        .footer {
+            padding: 40px;
+            border-top: 1px solid var(--border-light);
+            background: var(--color-bg);
+        }
+
+        .footer-inner {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            color: var(--color-text);
+            text-decoration: none;
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            color: var(--color-muted);
+        }
+
+        /* ==========================================================================
+           RESPONSIVE
+           ========================================================================== */
+        @media (max-width: 1000px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .hero-content {
+                text-align: center;
+                max-width: 100%;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-video {
+                order: -1;
+            }
+
+            .phone-video-container {
+                max-width: 260px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .approach-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .outcomes-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .curriculum-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .curriculum-card:nth-child(1),
+            .curriculum-card:nth-child(2) {
+                grid-column: span 1;
+            }
+
+            .curriculum-card:nth-child(3),
+            .curriculum-card:nth-child(4),
+            .curriculum-card:nth-child(5) {
+                grid-column: span 1;
+            }
+
+            /* Last card spans full width if odd number */
+            .curriculum-card:nth-child(5) {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .nav-inner {
+                padding: 16px 24px;
+            }
+
+            .hero {
+                padding: 140px 24px 80px;
+            }
+
+            .stat-section,
+            .stat-section-alt,
+            .pullquote-section {
+                padding: 80px 24px;
+            }
+
+            .approach-section,
+            .curriculum-section,
+            .outcomes-section,
+            .closing-section,
+            .form-section {
+                padding: 80px 24px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-inner {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .footer {
+                padding: 32px 24px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .play-button {
+                width: 60px;
+                height: 60px;
+            }
+
+            .play-button svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            .pullquote-line {
+                margin-bottom: 32px;
+            }
+
+            .pullquote-line-bottom {
+                margin-top: 32px;
+                margin-bottom: 24px;
+            }
+
+            .curriculum-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .curriculum-card:nth-child(1),
+            .curriculum-card:nth-child(2),
+            .curriculum-card:nth-child(3),
+            .curriculum-card:nth-child(4),
+            .curriculum-card:nth-child(5) {
+                grid-column: span 1;
+            }
+
+            .curriculum-card {
+                padding: 24px;
+            }
+
+            .curriculum-number {
+                font-size: 40px;
+            }
+
+            .closing-pullquote {
+                font-size: clamp(20px, 3.5vw, 24px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="https://fierceinc.com" class="logo">Fierce</a>
+            <a href="#form" class="btn btn-primary">Request Program Details</a>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: HERO -->
+    <section class="hero">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <p class="hero-eyebrow">Introducing Fierce Change®</p>
+                <h1 class="hero-headline">Change isn't a strategy problem.</h1>
+                <p class="hero-subhead"><span class="gradient-text">It's the conversation.</span></p>
+                <p class="hero-description">
+                    A new training program built for the leaders navigating reorgs, AI rollouts, growth, and everything in between — without leaving their people behind.
+                </p>
+                <a href="#form" class="btn btn-primary btn-large">Request Program Details</a>
+            </div>
+            <div class="hero-video">
+                <div class="phone-video-container">
+                    <div class="phone-frame">
+                        <!-- Phone frame SVG -->
+                        <svg class="phone-frame-svg" viewBox="0 0 701.7 1444" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <style>
+                                    .frame-outer{fill:#e0dfdf;stroke:#747577;stroke-miterlimit:10;stroke-width:4px;}
+                                    .frame-inner{fill:#070808;stroke:#989897;stroke-miterlimit:10;stroke-width:4px;}
+                                    .frame-notch{fill:#12110f;}
+                                    .frame-camera{fill:#1e333a;}
+                                </style>
+                            </defs>
+                            <rect fill="#888" x="692" y="503.7" width="9.6" height="159.59"/>
+                            <rect fill="#888" x="0" y="353.3" width="11.9" height="69.71"/>
+                            <rect fill="#888" x="0" y="459.7" width="11.9" height="102.73"/>
+                            <rect fill="#888" x="0" y="583.5" width="11.9" height="104.56"/>
+                            <path class="frame-outer" d="M588.4,2h-473.3A103.6,103.6,0,0,0,11.4,105.6V1338.4A103.6,103.6,0,0,0,115.1,1442h473.3a103.6,103.6,0,0,0,103.6-103.6V105.6A103.6,103.6,0,0,0,588.4,2Zm80.7,1331.3a83.5,83.5,0,0,1-83.5,83.5H116a83.5,83.5,0,0,1-83.5-83.5V110.7A83.5,83.5,0,0,1,116,27.2h469.6a83.5,83.5,0,0,1,83.5,83.5Z"/>
+                            <path class="frame-inner" d="M591.1,13h-476a91.7,91.7,0,0,0-91.7,91.7V1336.5a91.6,91.6,0,0,0,91.7,91.7h476a91.6,91.6,0,0,0,91.7-91.7V104.7A91.7,91.7,0,0,0,591.1,13Zm78,1320.3a83.5,83.5,0,0,1-83.5,83.5H116a83.5,83.5,0,0,1-83.5-83.5V110.7A83.5,83.5,0,0,1,116,27.2h469.6a83.5,83.5,0,0,1,83.5,83.5Z"/>
+                            <rect class="frame-notch" x="259.6" y="50.2" width="187.1" height="57.78" rx="28.9"/>
+                            <circle class="frame-camera" cx="419.2" cy="79" r="14.2"/>
+                        </svg>
+                        <div class="phone-screen">
+                            <iframe
+                                id="vimeo-player"
+                                src="https://player.vimeo.com/video/1193413116?badge=0&autopause=0&player_id=0&app_id=58479&muted=1&controls=1&loop=0"
+                                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                                title="Fierce Change Video"
+                                style="display: none;">
+                            </iframe>
+                            <div class="video-thumbnail" id="video-thumbnail" style="background-image: url('assets/thumbnail-clark.png');">
+                                <div class="play-button" id="play-button">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: THE PROBLEM (70% Stat) -->
+    <section class="stat-section">
+        <div class="stat-watermark" aria-hidden="true">
+            <div class="stat-watermark-row">
+                <span>AI rollouts</span>
+                <span>Reorgs</span>
+                <span>Growth</span>
+                <span>Mergers</span>
+                <span>Pivots</span>
+            </div>
+            <div class="stat-watermark-row">
+                <span>Restructures</span>
+                <span>Hybrid teams</span>
+                <span>New leadership</span>
+                <span>Layoffs</span>
+            </div>
+            <div class="stat-watermark-row">
+                <span>Fractional leaders</span>
+                <span>AI rollouts</span>
+                <span>Reorgs</span>
+                <span>Mergers</span>
+            </div>
+            <div class="stat-watermark-row">
+                <span>Growth</span>
+                <span>Pivots</span>
+                <span>Restructures</span>
+                <span>Hybrid teams</span>
+            </div>
+        </div>
+        <div class="stat-content">
+            <div class="stat-number">70%</div>
+            <h2 class="stat-headline">of change efforts fail.</h2>
+            <p class="stat-subhead">Not because the strategy is wrong.</p>
+            <p class="stat-body">
+                Most organizations have smart strategies. They have detailed rollout plans. They have communication decks and timelines and milestones. And still — when change hits, people brace for impact. <strong>They quietly disengage. They wait it out.</strong>
+                <br><br>
+                The plan isn't the problem. <strong>The conversations behind it are.</strong>
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 3: THE APPROACH -->
+    <section class="approach-section">
+        <div class="approach-header">
+            <h2 class="approach-headline">A conversation-powered approach to change.</h2>
+            <p class="approach-subhead">Fierce Change® isn't traditional change management. It's the conversations that make change actually stick.</p>
+        </div>
+        <p class="approach-intro">
+            When change is rushed or transactional, people feel confused, resistant, or left behind. When change is approached through powerful, honest conversations, everything shifts:
+        </p>
+        <div class="approach-grid">
+            <div class="approach-card">
+                <h3 class="approach-card-title">Change becomes clear and intentional.</h3>
+                <p class="approach-card-text">People understand what's happening and why — and what's being asked of them.</p>
+            </div>
+            <div class="approach-card">
+                <h3 class="approach-card-title">Resistance is surfaced and explored.</h3>
+                <p class="approach-card-text">Pushback gets named and worked through, instead of going underground.</p>
+            </div>
+            <div class="approach-card">
+                <h3 class="approach-card-title">Clarity accelerates execution.</h3>
+                <p class="approach-card-text">When teams trust the process, they move faster — not slower.</p>
+            </div>
+            <div class="approach-card">
+                <h3 class="approach-card-title">Trust and ownership grow.</h3>
+                <p class="approach-card-text">People become contributors to change, not casualties of it.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: PULL QUOTE -->
+    <section class="pullquote-section">
+        <div class="pullquote">
+            <div class="pullquote-line">
+                <div class="pullquote-line-left"></div>
+                <div class="pullquote-line-right"></div>
+            </div>
+            <blockquote class="pullquote-text">
+                "Change doesn't fail because strategy is unclear. It fails because behavior doesn't shift under pressure. At Fierce, we create the conversations that make change possible in the moments that matter."
+            </blockquote>
+            <div class="pullquote-line pullquote-line-bottom">
+                <div class="pullquote-line-left"></div>
+                <div class="pullquote-line-right"></div>
+            </div>
+            <div class="pullquote-attribution">
+                <p class="pullquote-name">Chantell Brandt</p>
+                <p class="pullquote-title">Vice President of Strategic Client Solutions, Fierce Inc.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: WHAT TEAMS LEARN -->
+    <section class="curriculum-section">
+        <div class="curriculum-inner">
+            <div class="curriculum-header">
+                <h2 class="curriculum-headline">What teams learn in the Fierce Change® Program.</h2>
+                <p class="curriculum-subhead">Five skills that help leaders guide their people through uncertainty — with confidence and connection.</p>
+            </div>
+            <div class="curriculum-grid">
+                <div class="curriculum-card">
+                    <div class="curriculum-number">01</div>
+                    <h3 class="curriculum-title">Why Change Fails</h3>
+                    <p class="curriculum-text">Why change efforts fail — and how to prevent it.</p>
+                </div>
+                <div class="curriculum-card">
+                    <div class="curriculum-number">02</div>
+                    <h3 class="curriculum-title">The Change Curve</h3>
+                    <p class="curriculum-text">How people move through change, based on decades of behavioral research.</p>
+                </div>
+                <div class="curriculum-card">
+                    <div class="curriculum-number">03</div>
+                    <h3 class="curriculum-title">Sources of Resistance</h3>
+                    <p class="curriculum-text">The real reasons people resist — and how to address them.</p>
+                </div>
+                <div class="curriculum-card">
+                    <div class="curriculum-number">04</div>
+                    <h3 class="curriculum-title">The CARES Model</h3>
+                    <p class="curriculum-text">How to support others through uncertainty with empathy.</p>
+                </div>
+                <div class="curriculum-card">
+                    <div class="curriculum-number">05</div>
+                    <h3 class="curriculum-title">Change Conversations</h3>
+                    <p class="curriculum-text">How to have effective conversations that build alignment and momentum.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: OUTCOMES BY LEVEL -->
+    <section class="outcomes-section">
+        <div class="outcomes-header">
+            <h2 class="outcomes-headline">Built for the whole organization.</h2>
+            <p class="outcomes-subhead">Fierce Change® creates different outcomes at every level — from individual teams to the enterprise.</p>
+        </div>
+        <div class="outcomes-grid">
+            <div class="outcome-column">
+                <h3 class="outcome-label">For Teams</h3>
+                <ul class="outcome-list">
+                    <li class="outcome-item">
+                        <svg class="outcome-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="4,10 8,14 16,6"/>
+                        </svg>
+                        <span>Reduce confusion and fear</span>
+                    </li>
+                    <li class="outcome-item">
+                        <svg class="outcome-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="4,10 8,14 16,6"/>
+                        </svg>
+                        <span>Strengthen communication</span>
+                    </li>
+                    <li class="outcome-item">
+                        <svg class="outcome-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="4,10 8,14 16,6"/>
+                        </svg>
+                        <span>Build shared ownership</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="outcome-column">
+                <h3 class="outcome-label">For Departments</h3>
+                <ul class="outcome-list">
+                    <li class="outcome-item">
+                        <svg class="outcome-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="4,10 8,14 16,6"/>
+                        </svg>
+                        <span>Align leaders around a unified message</span>
+                    </li>
+                    <li class="outcome-item">
+                        <svg class="outcome-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="4,10 8,14 16,6"/>
+                        </svg>
+                        <span>Surface resistance early</span>
+                    </li>
+                    <li class="outcome-item">
+                        <svg class="outcome-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="4,10 8,14 16,6"/>
+                        </svg>
+                        <span>Improve cross-functional execution</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="outcome-column">
+                <h3 class="outcome-label">For Organizations</h3>
+                <ul class="outcome-list">
+                    <li class="outcome-item">
+                        <svg class="outcome-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="4,10 8,14 16,6"/>
+                        </svg>
+                        <span>Increase adoption</span>
+                    </li>
+                    <li class="outcome-item">
+                        <svg class="outcome-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="4,10 8,14 16,6"/>
+                        </svg>
+                        <span>Reduce change fatigue</span>
+                    </li>
+                    <li class="outcome-item">
+                        <svg class="outcome-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="4,10 8,14 16,6"/>
+                        </svg>
+                        <span>Accelerate results</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: 5X STAT -->
+    <section class="stat-section-alt">
+        <div class="stat-content">
+            <div class="stat-number">5x</div>
+            <h2 class="stat-headline">Employees are 5x more likely to support change when they feel heard.</h2>
+            <p class="stat-source">Source: Prosci</p>
+            <p class="stat-supporting">Being heard is a core principle of the <span class="highlight">Fierce</span> approach.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 8: CLOSING / BOTTOM LINE -->
+    <div class="closing-wrapper">
+        <section class="closing-section">
+            <h2 class="closing-headline">Change isn't going away.</h2>
+            <p class="closing-subhead">The question is whether your leaders are ready for the conversations it requires.</p>
+
+            <p class="closing-pullquote">"Change doesn't fail because people can't handle it."</p>
+            <p class="closing-followup">It falls short when the way change is initiated isn't something people can trust, follow, or commit to.</p>
+
+            <div class="closing-divider"></div>
+
+            <p class="closing-statement">Fierce Change® turns uncertainty into alignment — and alignment into action.</p>
+
+            <p class="closing-cta-lead">If your organization is facing change (and whose isn't?), this is the moment.</p>
+            <a href="#form" class="btn btn-primary btn-large">Request Program Details</a>
+        </section>
+    </div>
+
+    <!-- SECTION 9: FORM -->
+    <section class="form-section" id="form">
+        <div class="form-inner">
+            <div class="form-header">
+                <h2 class="form-headline">See if Fierce Change® is right for your organization.</h2>
+                <p class="form-subhead">Tell us a little about your team. We'll be in touch within 1 business day with program details, pricing, and next steps.</p>
+            </div>
+            <!-- HubSpot Form Embed -->
+            <div class="hs-form-frame" data-region="na1" data-form-id="007823af-d12e-4619-8d30-89a48850d889" data-portal-id="21395487"></div>
+            <p class="form-disclaimer">We'll never share your information. You'll hear from a Fierce team member directly — not an automated sequence.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 10: TRUST BAR -->
+    <section class="trust-bar">
+        <div class="trust-inner">
+            <div class="trust-item">
+                <span class="highlight">Top 20</span> Training Industry Ranking
+            </div>
+            <div class="trust-item">
+                NPS of <span class="highlight">70</span>
+            </div>
+            <div class="trust-item">
+                WBENC <span class="highlight">Women-Owned</span> Business Certified
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <a href="https://fierceinc.com" class="footer-logo">Fierce</a>
+            <p class="footer-copyright">© 2026 Fierce, Inc.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Video play functionality
+        const thumbnail = document.getElementById('video-thumbnail');
+        const playButton = document.getElementById('play-button');
+        const iframe = document.getElementById('vimeo-player');
+
+        function playVideo() {
+            thumbnail.classList.add('hidden');
+            iframe.style.display = 'block';
+            // Update src to trigger autoplay
+            const currentSrc = iframe.src;
+            iframe.src = currentSrc + '&autoplay=1';
+        }
+
+        thumbnail.addEventListener('click', playVideo);
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = document.querySelector('.nav').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Convert UTM/tracking fields to hidden inputs after HubSpot form loads
+        function hideTrackingFields() {
+            const fieldsToHide = ['utm_source', 'utm_campaign', 'utm_content', 'utm_medium', 'utm_term', 'gclid'];
+
+            fieldsToHide.forEach(fieldName => {
+                // Find inputs by name attribute (exact or partial match)
+                const inputs = document.querySelectorAll(`input[name="${fieldName}"], input[name*="${fieldName}"]`);
+                inputs.forEach(input => {
+                    // Change input type to hidden
+                    input.type = 'hidden';
+
+                    // Find and remove the parent field container (which includes label)
+                    const fieldContainer = input.closest('.hs-form-field');
+                    if (fieldContainer) {
+                        // Remove the label
+                        const label = fieldContainer.querySelector('label');
+                        if (label) label.remove();
+
+                        // Hide the container but keep the input
+                        fieldContainer.style.position = 'absolute';
+                        fieldContainer.style.left = '-9999px';
+                        fieldContainer.style.width = '1px';
+                        fieldContainer.style.height = '1px';
+                        fieldContainer.style.overflow = 'hidden';
+                    }
+                });
+
+                // Also target by HubSpot's class naming convention
+                const hsFieldContainers = document.querySelectorAll(`.hs_${fieldName}`);
+                hsFieldContainers.forEach(container => {
+                    const input = container.querySelector('input');
+                    if (input) {
+                        input.type = 'hidden';
+                    }
+                    const label = container.querySelector('label');
+                    if (label) label.remove();
+
+                    container.style.position = 'absolute';
+                    container.style.left = '-9999px';
+                    container.style.width = '1px';
+                    container.style.height = '1px';
+                    container.style.overflow = 'hidden';
+                });
+            });
+        }
+
+        // Run multiple times to catch HubSpot's async form rendering
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(hideTrackingFields, 100);
+            setTimeout(hideTrackingFields, 500);
+            setTimeout(hideTrackingFields, 1000);
+            setTimeout(hideTrackingFields, 2000);
+            setTimeout(hideTrackingFields, 3000);
+        });
+
+        // Also observe for dynamically added form elements
+        const formContainer = document.querySelector('.hs-form-frame');
+        if (formContainer) {
+            const formObserver = new MutationObserver(() => {
+                hideTrackingFields();
+            });
+            formObserver.observe(formContainer, { childList: true, subtree: true });
+        }
+
+        // Fallback: run on window load
+        window.addEventListener('load', () => {
+            setTimeout(hideTrackingFields, 500);
+            setTimeout(hideTrackingFields, 1500);
+        });
+    </script>
+</body>
+</html>
