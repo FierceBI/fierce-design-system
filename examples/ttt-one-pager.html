@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fierce Train the Trainer — Program Overview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gradient-start: #f5a623;
+            --gradient-mid: #eb7525;
+            --gradient-end: #d45f10;
+            --color-text: #0e0e0e;
+            --color-navy: #1C2B3A;
+            --color-muted: #555555;
+            --color-bg: #ffffff;
+            --surface-section: #F5F4F1;
+            --font-serif: 'DM Serif Display', serif;
+            --font-sans: 'DM Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: #f0f0f0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .page {
+            width: 8.5in;
+            height: 11in;
+            background: var(--color-bg);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Decorative corner accent */
+        .page::after {
+            content: '';
+            position: absolute;
+            bottom: 140px;
+            right: 0;
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gradient-start), var(--gradient-mid));
+            opacity: 0.4;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 260px;
+            background: var(--color-text);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            z-index: 10;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 65%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 120%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            margin-left: -10%;
+        }
+
+        /* Diagonal overlay */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--color-text);
+            clip-path: polygon(0 0, 65% 0, 45% 100%, 0 100%);
+            z-index: 2;
+        }
+
+        /* Subtle gradient line on diagonal edge */
+        .hero-overlay::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 35%;
+            width: 2px;
+            background: linear-gradient(180deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end), transparent);
+            transform: rotate(-18deg);
+            transform-origin: top center;
+            opacity: 0.6;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            padding: 30px 40px 35px;
+            max-width: 50%;
+            color: white;
+        }
+
+        .program-label {
+            display: inline-block;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.1);
+            padding: 5px 10px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            font-weight: 400;
+            line-height: 1.15;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 12px;
+            line-height: 1.55;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .hero-subtitle strong {
+            color: white;
+        }
+
+        /* Main Content */
+        .content {
+            padding: 20px 40px 16px;
+            flex: 1;
+        }
+
+        /* Section Labels */
+        .section-label {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--color-text);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), transparent);
+            opacity: 0.3;
+        }
+
+        /* What It Is */
+        .what-it-is {
+            margin-bottom: 14px;
+        }
+
+        .what-it-is p {
+            font-size: 12px;
+            line-height: 1.6;
+            color: var(--color-muted);
+        }
+
+        .what-it-is p strong {
+            color: var(--color-text);
+        }
+
+        /* Highlight Row */
+        .highlight-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+
+        /* Quote Box */
+        .quote-box {
+            background: var(--surface-section);
+            padding: 14px 16px;
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.03);
+        }
+
+        /* Subtle left accent on quote */
+        .quote-box::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            bottom: 12px;
+            width: 3px;
+            background: linear-gradient(180deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 2px;
+        }
+
+        .quote-mark {
+            font-family: var(--font-serif);
+            font-size: 30px;
+            line-height: 0.5;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 4px;
+        }
+
+        .quote-text {
+            font-family: var(--font-serif);
+            font-size: 13px;
+            line-height: 1.4;
+            color: var(--color-text);
+            margin-bottom: 8px;
+        }
+
+        .quote-author {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--color-text);
+        }
+
+        .quote-title {
+            font-size: 9px;
+            color: var(--color-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        /* Stat Box */
+        .stat-box {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            padding: 14px 16px;
+            border-radius: 8px;
+            color: white;
+            position: relative;
+            box-shadow: 0 4px 16px rgba(235, 117, 37, 0.25), 0 2px 6px rgba(235, 117, 37, 0.15);
+            overflow: hidden;
+        }
+
+        /* Decorative circle in stat box */
+        .stat-box::after {
+            content: '';
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            width: 80px;
+            height: 80px;
+            border: 2px solid rgba(255,255,255,0.15);
+            border-radius: 50%;
+        }
+
+        .stat-number {
+            font-family: var(--font-serif);
+            font-size: 32px;
+            line-height: 1;
+            margin-bottom: 3px;
+        }
+
+        .stat-text {
+            font-size: 11px;
+            line-height: 1.4;
+            opacity: 0.95;
+        }
+
+        .stat-source {
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            opacity: 0.7;
+            margin-top: 6px;
+        }
+
+        /* Tiers Section */
+        .tiers-section {
+            margin-bottom: 16px;
+        }
+
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+        }
+
+        .tier-card {
+            background: var(--surface-section);
+            border-radius: 10px;
+            padding: 14px 16px;
+            position: relative;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.03);
+            overflow: hidden;
+        }
+
+        /* Gradient top accent line */
+        .tier-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+        }
+
+        .tier-card.featured {
+            background: var(--color-text);
+            color: white;
+            box-shadow: 0 4px 20px rgba(14, 14, 14, 0.2), 0 2px 8px rgba(14, 14, 14, 0.1);
+        }
+
+        /* Decorative corner element on featured */
+        .tier-card.featured::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 80px;
+            height: 80px;
+            border: 2px solid rgba(235, 117, 37, 0.2);
+            border-radius: 50%;
+        }
+
+        .tier-label {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-muted);
+            margin-bottom: 4px;
+        }
+
+        .tier-card.featured .tier-label {
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tier-name {
+            font-family: var(--font-serif);
+            font-size: 16px;
+            color: var(--color-text);
+            margin-bottom: 6px;
+        }
+
+        .tier-card.featured .tier-name {
+            color: white;
+        }
+
+        .tier-modules {
+            list-style: none;
+            font-size: 10px;
+            line-height: 1.45;
+            color: var(--color-muted);
+        }
+
+        .tier-card.featured .tier-modules {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .tier-modules li {
+            padding: 1px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tier-tag {
+            display: inline-block;
+            font-size: 8px;
+            font-weight: 700;
+            padding: 2px 5px;
+            border-radius: 3px;
+            margin-left: auto;
+            flex-shrink: 0;
+        }
+
+        .tag-new {
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+        }
+
+        .tag-updated {
+            background: rgba(235, 117, 37, 0.15);
+            color: var(--gradient-mid);
+        }
+
+        .tier-card.featured .tag-updated {
+            background: rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        .tag-access {
+            background: rgba(100, 100, 100, 0.12);
+            color: #666;
+        }
+
+        .tag-addon {
+            background: rgba(28, 43, 58, 0.12);
+            color: var(--color-navy);
+        }
+
+        /* What It Delivers */
+        .delivers-section {
+            margin-bottom: 0;
+        }
+
+        .delivers-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 14px;
+        }
+
+        .delivers-card {
+            padding-top: 12px;
+            position: relative;
+        }
+
+        /* Gradient top border */
+        .delivers-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 35px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 2px;
+        }
+
+        .delivers-card h4 {
+            font-family: var(--font-serif);
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--color-text);
+            margin-bottom: 6px;
+        }
+
+        .delivers-card ul {
+            list-style: none;
+        }
+
+        .delivers-card li {
+            font-size: 10px;
+            line-height: 1.45;
+            color: var(--color-muted);
+            padding: 2px 0;
+            padding-left: 10px;
+            position: relative;
+        }
+
+        .delivers-card li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 7px;
+            width: 3px;
+            height: 3px;
+            background: var(--gradient-mid);
+            border-radius: 50%;
+        }
+
+        /* Bottom Stat Bar */
+        .stat-bar {
+            background: var(--color-text);
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .stat-bar-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+        }
+
+        .stat-bar-number {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-bar-text {
+            font-size: 11px;
+            line-height: 1.4;
+            color: rgba(255,255,255,0.7);
+            max-width: 140px;
+        }
+
+        .stat-bar-divider {
+            width: 1px;
+            height: 36px;
+            background: rgba(255,255,255,0.15);
+        }
+
+        /* Footer CTA */
+        .footer-cta {
+            background: var(--surface-section);
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Top accent line on footer */
+        .footer-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 40px;
+            right: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end), transparent);
+            opacity: 0.3;
+        }
+
+        .footer-cta-content h3 {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--color-text);
+            margin-bottom: 2px;
+        }
+
+        .footer-cta-content h3 .highlight {
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-cta-content p {
+            font-size: 11px;
+            color: var(--color-muted);
+        }
+
+        .footer-brand {
+            text-align: right;
+        }
+
+        .footer-brand .logo {
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--gradient-mid);
+            letter-spacing: -0.02em;
+        }
+
+        .footer-brand .program-name {
+            font-size: 8px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-muted);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 8px 20px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            color: white;
+            font-family: var(--font-sans);
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 8px;
+            box-shadow: 0 3px 12px rgba(235, 117, 37, 0.3);
+        }
+
+        /* Print */
+        @media print {
+            @page {
+                size: 8.5in 11in;
+                margin: 0;
+            }
+            body {
+                padding: 0;
+                background: white;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .page {
+                box-shadow: none;
+                width: 8.5in;
+                height: 11in;
+                page-break-after: avoid;
+                page-break-inside: avoid;
+                overflow: hidden;
+            }
+            .page::after,
+            .hero-overlay::after,
+            .stat-box::after,
+            .tier-card::before,
+            .tier-card.featured::after,
+            .quote-box::before,
+            .delivers-card::before,
+            .footer-cta::before,
+            .section-label::after {
+                display: none !important;
+            }
+            .stat-box,
+            .tier-card,
+            .quote-box,
+            .cta-button {
+                box-shadow: none !important;
+                overflow: hidden !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-image">
+                <img src="cover-bg.jpg" alt="Professional facilitator leading a conversation">
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="program-label">The Fierce Train the Trainer Program</div>
+                <h1>The workplace changed.<br>Most certifications<br><span class="highlight">didn't keep up.</span></h1>
+                <p class="hero-subtitle">
+                    Four generations. Hybrid teams. Emotional fatigue at every level. <strong>Conversations do.</strong> Fierce Train the Trainer equips your facilitators to lead the conversations organizations are actually having today.
+                </p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <!-- What It Is -->
+            <div class="what-it-is">
+                <div class="section-label">What It Is</div>
+                <p>
+                    Fierce Train the Trainer is a <strong>certification program that builds internal facilitation capability</strong>. Your people learn to deliver Fierce content — from foundational conversation skills to advanced leadership modules — so development scales without ongoing external dependency. Choose Core, Advanced, or the Full Pathway based on your organization's needs.
+                </p>
+            </div>
+
+            <!-- Quote and Stat Row -->
+            <div class="highlight-row">
+                <!-- Quote Box -->
+                <div class="quote-box">
+                    <div class="quote-mark">"</div>
+                    <p class="quote-text">Facilitators are being asked to lead conversations they were never trained for. This changes that.</p>
+                    <div class="quote-author">Susan Scott</div>
+                    <div class="quote-title">Founder, Fierce Inc.</div>
+                </div>
+
+                <!-- Stat Box -->
+                <div class="stat-box">
+                    <div class="stat-number">20+</div>
+                    <p class="stat-text">years of proven methodology delivered to Fortune 500 companies worldwide</p>
+                    <div class="stat-source">Fierce Inc.</div>
+                </div>
+            </div>
+
+            <!-- Certification Tiers -->
+            <div class="tiers-section">
+                <div class="section-label">Three Paths to Certification</div>
+                <div class="tiers-grid">
+                    <div class="tier-card">
+                        <div class="tier-label">Tier 1</div>
+                        <div class="tier-name">Core</div>
+                        <ul class="tier-modules">
+                            <li>Foundations</li>
+                            <li>Feedback</li>
+                            <li>Confront</li>
+                            <li>Coach</li>
+                            <li>Team</li>
+                            <li>Delegate <span class="tier-tag tag-access">Materials Only</span></li>
+                        </ul>
+                    </div>
+                    <div class="tier-card">
+                        <div class="tier-label">Tier 2</div>
+                        <div class="tier-name">Advanced</div>
+                        <ul class="tier-modules">
+                            <li>Accountability <span class="tier-tag tag-updated">Updated</span></li>
+                            <li>Resilience <span class="tier-tag tag-updated">Deeper</span></li>
+                            <li>Influence <span class="tier-tag tag-updated">Deeper</span></li>
+                            <li>Emotional Intelligence <span class="tier-tag tag-new">New</span></li>
+                            <li>Generations <span class="tier-tag tag-new">New</span></li>
+                            <li>Awareness / DISC <span class="tier-tag tag-addon">Add-on</span></li>
+                        </ul>
+                    </div>
+                    <div class="tier-card featured">
+                        <div class="tier-label">Premium</div>
+                        <div class="tier-name">Full Pathway</div>
+                        <ul class="tier-modules">
+                            <li>All Core modules</li>
+                            <li>All Advanced modules</li>
+                            <li>Full facilitation capability</li>
+                            <li>No second rollout needed</li>
+                            <li>Scale across teams & regions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What It Delivers -->
+            <div class="delivers-section">
+                <div class="section-label">What It Delivers</div>
+                <div class="delivers-grid">
+                    <div class="delivers-card">
+                        <h4>For Facilitators</h4>
+                        <ul>
+                            <li>Full certification to deliver Fierce content</li>
+                            <li>Complete toolkit: guides, slides, workbooks</li>
+                            <li>Confidence in high-stakes conversations</li>
+                        </ul>
+                    </div>
+                    <div class="delivers-card">
+                        <h4>For L&D Teams</h4>
+                        <ul>
+                            <li>Scale development without external dependency</li>
+                            <li>Flexible delivery: virtual or in-person</li>
+                            <li>Consistent methodology across regions</li>
+                        </ul>
+                    </div>
+                    <div class="delivers-card">
+                        <h4>For Organizations</h4>
+                        <ul>
+                            <li>Build internal capability that compounds</li>
+                            <li>Address today's real challenges</li>
+                            <li>Drive culture through conversation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stat Bar -->
+        <div class="stat-bar">
+            <div class="stat-bar-item">
+                <div class="stat-bar-number">20+</div>
+                <div class="stat-bar-text">years of proven methodology</div>
+            </div>
+            <div class="stat-bar-divider"></div>
+            <div class="stat-bar-item">
+                <div class="stat-bar-number">500+</div>
+                <div class="stat-bar-text">Fortune companies trained</div>
+            </div>
+            <div class="stat-bar-divider"></div>
+            <div class="stat-bar-item">
+                <div class="stat-bar-number">10</div>
+                <div class="stat-bar-text">modules across Core & Advanced</div>
+            </div>
+        </div>
+
+        <!-- Footer CTA -->
+        <div class="footer-cta">
+            <div class="footer-cta-content">
+                <h3>Bring <span class="highlight">Fierce Train the Trainer</span> to your organization.</h3>
+                <p>Contact your Fierce partner to scope the right certification path for your team.</p>
+                <a href="https://fierceinc.com/fierce-ttt/" class="cta-button">Get Started</a>
+            </div>
+            <div class="footer-brand">
+                <div class="logo">Fierce</div>
+                <div class="program-name">Train the Trainer</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
