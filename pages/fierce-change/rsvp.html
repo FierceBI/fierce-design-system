@@ -7,44 +7,25 @@
     <meta name="description" content="Join us for an exclusive 30-minute preview of Fierce Change® — our most requested program yet. Meet one of our master facilitators and experience the conversation that changes everything.">
     <meta name="robots" content="noindex, nofollow">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="RSVP: Fierce Change® Preview Session">
-    <meta property="og:description" content="Join us for an exclusive 30-minute preview of Fierce Change® — our most requested program yet.">
-    <meta property="og:type" content="website">
-
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
 
     <style>
-        /* ==========================================================================
-           DESIGN TOKENS
-           ========================================================================== */
         :root {
-            /* Colors */
             --color-accent: #eb7525;
             --color-accent-hover: #d4691f;
             --gradient-start: #f5a623;
-            --gradient-mid: #eb7525;
             --gradient-end: #d45f10;
-            --color-bg: #ffffff;
+            --color-bg: #F5F4F1;
+            --color-card-bg: #ffffff;
             --color-text: #0e0e0e;
             --color-navy: #1C2B3A;
-            --color-muted: #888888;
-            --color-text-inverse: #ffffff;
-            --surface-section: #F5F4F1;
-            --border-light: rgba(14, 14, 14, 0.06);
-            --border-default: rgba(14, 14, 14, 0.1);
-            --shadow-focus: 0 0 0 4px rgba(235, 117, 37, 0.08);
-
-            /* Typography */
+            --color-muted: #666666;
+            --color-dark-box: #1a1a1a;
             --font-serif: 'DM Serif Display', serif;
             --font-sans: 'DM Sans', sans-serif;
-
-            /* Layout */
-            --container-max: 1200px;
-            --container-narrow: 600px;
         }
 
         * {
@@ -63,484 +44,430 @@
             background: var(--color-bg);
             line-height: 1.6;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
 
-        /* ==========================================================================
-           NAVIGATION
-           ========================================================================== */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-light);
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px 24px 32px;
         }
 
-        .nav-inner {
-            max-width: var(--container-max);
-            margin: 0 auto;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
+        .header-logo {
             font-family: var(--font-serif);
-            font-size: 28px;
-            color: var(--color-text);
+            font-size: 32px;
+            color: var(--color-accent);
             text-decoration: none;
-            letter-spacing: -0.02em;
+            display: block;
+            margin-bottom: 8px;
         }
 
-        /* ==========================================================================
-           MAIN CONTENT
-           ========================================================================== */
+        .header-subtitle {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-muted);
+        }
+
+        /* Main Card */
         .main {
-            flex: 1;
-            padding: 140px 40px 80px;
-        }
-
-        .container {
-            max-width: var(--container-max);
+            max-width: 800px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: start;
+            padding: 0 24px 60px;
         }
 
-        /* Left Column - Event Info */
-        .event-info {
-            max-width: 520px;
+        .card {
+            background: var(--color-card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
         }
 
+        .card-accent {
+            height: 4px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--color-accent), var(--gradient-end));
+        }
+
+        .card-content {
+            padding: 48px 48px 56px;
+        }
+
+        /* Eyebrow */
         .eyebrow {
             font-size: 13px;
             font-weight: 600;
-            text-transform: uppercase;
             letter-spacing: 0.12em;
+            text-transform: uppercase;
             color: var(--color-accent);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
+        /* Headline */
         .headline {
             font-family: var(--font-serif);
-            font-size: clamp(36px, 5vw, 52px);
-            line-height: 1.1;
+            font-size: clamp(32px, 5vw, 42px);
+            line-height: 1.15;
             letter-spacing: -0.02em;
+            margin-bottom: 20px;
+        }
+
+        .headline-dark {
             color: var(--color-navy);
-            margin-bottom: 24px;
         }
 
-        .subhead {
-            font-size: 20px;
-            line-height: 1.6;
-            color: var(--color-text);
+        .headline-accent {
+            color: var(--color-accent);
+        }
+
+        /* Description */
+        .description {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--color-muted);
+            margin-bottom: 36px;
+            max-width: 600px;
+        }
+
+        /* Feature Boxes */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
             margin-bottom: 40px;
         }
 
-        .event-details {
-            background: var(--surface-section);
-            border-radius: 12px;
-            padding: 32px;
+        .feature-box {
+            background: var(--color-dark-box);
+            border-radius: 10px;
+            padding: 24px 20px;
+            text-align: center;
+        }
+
+        .feature-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .feature-divider {
+            width: 24px;
+            height: 2px;
+            background: var(--color-accent);
+            margin: 0 auto 10px;
+        }
+
+        .feature-subtitle {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Session List */
+        .session-section {
             margin-bottom: 40px;
         }
 
-        .event-details-title {
-            font-family: var(--font-serif);
-            font-size: 22px;
+        .session-label {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
             color: var(--color-navy);
             margin-bottom: 20px;
         }
 
-        .event-meta {
+        .session-list {
+            list-style: none;
             display: flex;
             flex-direction: column;
             gap: 16px;
         }
 
-        .event-meta-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 17px;
-        }
-
-        .event-meta-item svg {
-            width: 24px;
-            height: 24px;
-            color: var(--color-accent);
-            flex-shrink: 0;
-        }
-
-        .event-meta-label {
-            color: var(--color-muted);
-            min-width: 80px;
-        }
-
-        .event-meta-value {
-            color: var(--color-navy);
-            font-weight: 500;
-        }
-
-        .what-to-expect {
-            margin-bottom: 40px;
-        }
-
-        .what-to-expect-title {
-            font-family: var(--font-serif);
-            font-size: 22px;
-            color: var(--color-navy);
-            margin-bottom: 16px;
-        }
-
-        .expect-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .expect-list li {
+        .session-list li {
             display: flex;
             align-items: flex-start;
-            gap: 12px;
+            gap: 14px;
             font-size: 17px;
             line-height: 1.5;
+            color: var(--color-text);
         }
 
-        .expect-list li svg {
-            width: 20px;
-            height: 20px;
+        .session-list li svg {
+            width: 18px;
+            height: 18px;
             color: var(--color-accent);
             flex-shrink: 0;
-            margin-top: 3px;
+            margin-top: 4px;
         }
 
-        .pull-quote {
-            font-family: var(--font-serif);
-            font-size: 24px;
-            line-height: 1.4;
-            color: var(--color-navy);
-            border-left: 3px solid var(--color-accent);
-            padding-left: 24px;
-            font-style: italic;
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
         }
 
-        /* Right Column - Form */
-        .form-container {
-            background: var(--surface-section);
-            border-radius: 16px;
-            padding: 40px;
-            position: sticky;
-            top: 120px;
+        .btn {
+            display: inline-block;
+            padding: 18px 48px;
+            font-family: var(--font-sans);
+            font-size: 17px;
+            font-weight: 600;
+            color: #ffffff;
+            background: linear-gradient(135deg, var(--gradient-start), var(--color-accent), var(--gradient-end));
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 16px rgba(235, 117, 37, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(235, 117, 37, 0.4);
+        }
+
+        .cta-note {
+            font-size: 14px;
+            color: var(--color-muted);
+            margin-top: 16px;
+        }
+
+        /* Form Modal/Section */
+        .form-section {
+            display: none;
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .form-section.active {
+            display: block;
         }
 
         .form-title {
             font-family: var(--font-serif);
-            font-size: 28px;
+            font-size: 24px;
             color: var(--color-navy);
-            margin-bottom: 8px;
+            margin-bottom: 24px;
+            text-align: center;
         }
 
-        .form-subtitle {
-            font-size: 16px;
-            color: var(--color-muted);
-            margin-bottom: 32px;
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
         }
 
         .form-label {
-            display: block;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 500;
             color: var(--color-text);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .form-input {
-            width: 100%;
             padding: 14px 16px;
             font-family: var(--font-sans);
             font-size: 16px;
-            border: 1px solid var(--border-default);
+            border: 1px solid rgba(0, 0, 0, 0.12);
             border-radius: 8px;
-            background: var(--color-bg);
+            background: #f9f9f7;
             transition: border-color 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .form-input:hover {
-            border-color: rgba(14, 14, 14, 0.2);
         }
 
         .form-input:focus {
             outline: none;
             border-color: var(--color-accent);
-            box-shadow: var(--shadow-focus);
+            box-shadow: 0 0 0 3px rgba(235, 117, 37, 0.1);
         }
 
-        .form-input::placeholder {
-            color: var(--color-muted);
-        }
-
-        .btn {
+        .form-submit {
             width: 100%;
-            padding: 16px 32px;
-            font-family: var(--font-sans);
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--color-text-inverse);
-            background: var(--color-accent);
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.2s ease, transform 0.2s ease;
+            margin-top: 8px;
         }
 
-        .btn:hover {
-            background: var(--color-accent-hover);
-            transform: translateY(-1px);
-        }
-
-        .btn:active {
-            transform: translateY(0);
-        }
-
-        .btn:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .form-note {
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 32px 24px;
             font-size: 14px;
             color: var(--color-muted);
-            text-align: center;
-            margin-top: 16px;
         }
 
-        /* ==========================================================================
-           FOOTER
-           ========================================================================== */
-        .footer {
-            padding: 40px;
-            border-top: 1px solid var(--border-light);
-            background: var(--color-bg);
-        }
-
-        .footer-inner {
-            max-width: var(--container-max);
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .footer-logo {
-            font-family: var(--font-serif);
-            font-size: 20px;
-            color: var(--color-text);
+        .footer a {
+            color: var(--color-muted);
             text-decoration: none;
         }
 
-        .footer-copyright {
-            font-size: 14px;
-            color: var(--color-muted);
+        .footer a:hover {
+            color: var(--color-accent);
         }
 
-        /* ==========================================================================
-           RESPONSIVE
-           ========================================================================== */
-        @media (max-width: 900px) {
-            .container {
-                grid-template-columns: 1fr;
-                gap: 48px;
-            }
-
-            .form-container {
-                position: static;
-            }
-
-            .event-info {
-                max-width: 100%;
-            }
-        }
-
+        /* Responsive */
         @media (max-width: 680px) {
-            .nav-inner {
-                padding: 16px 24px;
+            .card-content {
+                padding: 32px 24px 40px;
             }
 
-            .main {
-                padding: 120px 24px 60px;
+            .features {
+                grid-template-columns: 1fr;
+                gap: 12px;
             }
 
-            .event-details {
-                padding: 24px;
+            .feature-box {
+                padding: 20px 16px;
             }
 
-            .form-container {
-                padding: 28px;
+            .form-grid {
+                grid-template-columns: 1fr;
             }
 
-            .footer {
-                padding: 32px 24px;
-            }
-
-            .footer-inner {
-                flex-direction: column;
-                gap: 16px;
-                text-align: center;
+            .btn {
+                width: 100%;
+                padding: 16px 32px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="https://fierceinc.com" class="logo">Fierce</a>
-        </div>
-    </nav>
+    <!-- Header -->
+    <header class="header">
+        <a href="https://fierceinc.com" class="header-logo">Fierce</a>
+        <p class="header-subtitle">Fierce Change</p>
+    </header>
 
-    <!-- Main Content -->
+    <!-- Main Card -->
     <main class="main">
-        <div class="container">
-            <!-- Left Column - Event Info -->
-            <div class="event-info">
-                <p class="eyebrow">Exclusive Preview Session</p>
-                <h1 class="headline">Experience Fierce Change® — Before Anyone Else</h1>
-                <p class="subhead">Join us for an exclusive 30-minute preview of our most requested program yet — six months in the making, and finally ready to share.</p>
+        <div class="card">
+            <div class="card-accent"></div>
+            <div class="card-content">
+                <p class="eyebrow">Virtual Session</p>
+                <h1 class="headline">
+                    <span class="headline-dark">Meet the Master Facilitator</span>
+                    <span class="headline-accent">Behind the Program</span>
+                </h1>
+                <p class="description">Considering Fierce Change® for your organization? Join us for a 30-minute virtual session to meet the facilitator, ask questions, and discover how to lead change through conversation.</p>
 
-                <div class="event-details">
-                    <h2 class="event-details-title">Session Details</h2>
-                    <div class="event-meta">
-                        <div class="event-meta-item">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                <line x1="16" y1="2" x2="16" y2="6"></line>
-                                <line x1="8" y1="2" x2="8" y2="6"></line>
-                                <line x1="3" y1="10" x2="21" y2="10"></line>
-                            </svg>
-                            <span class="event-meta-label">Date</span>
-                            <span class="event-meta-value">Friday, May 29th</span>
-                        </div>
-                        <div class="event-meta-item">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <polyline points="12 6 12 12 16 14"></polyline>
-                            </svg>
-                            <span class="event-meta-label">Time</span>
-                            <span class="event-meta-value">8:00 AM Eastern</span>
-                        </div>
-                        <div class="event-meta-item">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4"></path>
-                            </svg>
-                            <span class="event-meta-label">Duration</span>
-                            <span class="event-meta-value">30 minutes</span>
-                        </div>
-                        <div class="event-meta-item">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                            </svg>
-                            <span class="event-meta-label">Format</span>
-                            <span class="event-meta-value">Live Virtual Session</span>
-                        </div>
+                <!-- Feature Boxes -->
+                <div class="features">
+                    <div class="feature-box">
+                        <div class="feature-title">30 Minutes</div>
+                        <div class="feature-divider"></div>
+                        <div class="feature-subtitle">Virtual session</div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-title">Live Q&A</div>
+                        <div class="feature-divider"></div>
+                        <div class="feature-subtitle">With master facilitator</div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-title">Exclusive Preview</div>
+                        <div class="feature-divider"></div>
+                        <div class="feature-subtitle">6 months in the making</div>
                     </div>
                 </div>
 
-                <div class="what-to-expect">
-                    <h2 class="what-to-expect-title">What to Expect</h2>
-                    <ul class="expect-list">
+                <!-- Session Details -->
+                <div class="session-section">
+                    <p class="session-label">In This Session, You'll:</p>
+                    <ul class="session-list">
                         <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
-                            Meet one of our master facilitators who helped create this program
+                            Meet the master facilitator who helped create Fierce Change®
                         </li>
                         <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
-                            Get a behind-the-scenes look at Fierce Change® methodology
+                            Explore the conversation-powered approach to leading through change
                         </li>
                         <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
-                            Ask questions and get answers in real time
+                            Get guidance on how Fierce Change® fits your organization's goals
                         </li>
                         <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
-                            Feel the change you could bring back to your organization
+                            Ask questions about delivery, timing, and implementation
                         </li>
                     </ul>
                 </div>
 
-                <p class="pull-quote">"Change doesn't fail because people can't handle it. It falls short when conversations don't build trust."</p>
-            </div>
+                <!-- CTA -->
+                <div class="cta-section">
+                    <button class="btn" id="showFormBtn">Save Your Spot</button>
+                    <p class="cta-note">Friday, May 29th at 8:00 AM ET · Limited availability.</p>
+                </div>
 
-            <!-- Right Column - Form -->
-            <div class="form-container">
-                <h2 class="form-title">Reserve Your Spot</h2>
-                <p class="form-subtitle">Seats are limited. RSVP to secure yours.</p>
+                <!-- Form (hidden by default, shown on button click) -->
+                <div class="form-section" id="formSection">
+                    <h2 class="form-title">Reserve Your Spot</h2>
+                    <form id="rsvpForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label" for="firstName">First name</label>
+                                <input type="text" class="form-input" id="firstName" name="firstname" required autocomplete="given-name">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="lastName">Last name</label>
+                                <input type="text" class="form-input" id="lastName" name="lastname" required autocomplete="family-name">
+                            </div>
+                            <div class="form-group full-width">
+                                <label class="form-label" for="email">Work email</label>
+                                <input type="email" class="form-input" id="email" name="email" required autocomplete="email">
+                            </div>
+                            <div class="form-group full-width">
+                                <label class="form-label" for="company">Company</label>
+                                <input type="text" class="form-input" id="company" name="company" required autocomplete="organization">
+                            </div>
+                        </div>
 
-                <form id="rsvpForm">
-                    <div class="form-group">
-                        <label class="form-label" for="firstName">First name</label>
-                        <input type="text" class="form-input" id="firstName" name="firstname" required autocomplete="given-name">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="lastName">Last name</label>
-                        <input type="text" class="form-input" id="lastName" name="lastname" required autocomplete="family-name">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="email">Work email</label>
-                        <input type="email" class="form-input" id="email" name="email" required autocomplete="email">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="company">Company</label>
-                        <input type="text" class="form-input" id="company" name="company" required autocomplete="organization">
-                    </div>
+                        <!-- Hidden UTM fields -->
+                        <input type="hidden" id="utm_source" name="utm_source">
+                        <input type="hidden" id="utm_campaign" name="utm_campaign">
+                        <input type="hidden" id="utm_content" name="utm_content">
+                        <input type="hidden" id="utm_medium" name="utm_medium">
+                        <input type="hidden" id="gclid" name="gclid">
 
-                    <!-- Hidden UTM fields -->
-                    <input type="hidden" id="utm_source" name="utm_source">
-                    <input type="hidden" id="utm_campaign" name="utm_campaign">
-                    <input type="hidden" id="utm_content" name="utm_content">
-                    <input type="hidden" id="utm_medium" name="utm_medium">
-                    <input type="hidden" id="gclid" name="gclid">
-
-                    <button type="submit" class="btn" id="submitBtn">RSVP Now</button>
-                    <p class="form-note">We'll send you a calendar invite with the session link.</p>
-                </form>
+                        <button type="submit" class="btn form-submit" id="submitBtn">Confirm RSVP</button>
+                    </form>
+                </div>
             </div>
         </div>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-inner">
-            <a href="https://fierceinc.com" class="footer-logo">Fierce</a>
-            <p class="footer-copyright">&copy; 2026 Fierce, Inc.</p>
-        </div>
+        <p>&copy; 2026 <a href="https://fierceinc.com">Fierce, Inc.</a></p>
     </footer>
 
     <script>
+        // Show form on button click
+        const showFormBtn = document.getElementById('showFormBtn');
+        const formSection = document.getElementById('formSection');
+
+        showFormBtn.addEventListener('click', () => {
+            formSection.classList.add('active');
+            showFormBtn.style.display = 'none';
+            document.getElementById('firstName').focus();
+            formSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+
         // Capture UTM parameters from URL
         const urlParams = new URLSearchParams(window.location.search);
         const utmFields = ['utm_source', 'utm_campaign', 'utm_content', 'utm_medium', 'gclid'];
@@ -594,7 +521,6 @@
                 });
 
                 if (response.ok) {
-                    // Success - redirect to thank you page
                     window.location.href = 'rsvp-thank-you.html';
                 } else {
                     throw new Error('Form submission failed');
