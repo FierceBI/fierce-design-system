@@ -139,13 +139,15 @@
         }
 
         .btn-primary {
-            background: var(--color-accent);
+            background: linear-gradient(135deg, var(--gradient-start), var(--color-accent), var(--gradient-end));
             color: var(--color-text-inverse);
+            box-shadow: 0 4px 16px rgba(235, 117, 37, 0.3);
         }
 
         .btn-primary:hover {
-            background: var(--color-accent-hover);
-            transform: translateY(-1px);
+            background: linear-gradient(135deg, var(--gradient-end), var(--color-accent), var(--gradient-start));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(235, 117, 37, 0.4);
         }
 
         .btn-primary:active {
@@ -631,9 +633,28 @@
 
         .curriculum-card {
             background: var(--color-bg);
-            border: 1px solid rgba(14, 14, 14, 0.08);
             border-radius: 12px;
             padding: 32px;
+            position: relative;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+
+        .curriculum-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 12px;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
         }
 
         .curriculum-number {
@@ -893,11 +914,63 @@
         }
 
         /* ==========================================================================
-           SECTION 9: FORM
+           SECTION 9: FORM MODAL
            ========================================================================== */
+        .form-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            overflow-y: auto;
+        }
+
+        .form-overlay.active {
+            display: flex;
+        }
+
         .form-section {
-            padding: 120px 40px;
+            background: var(--color-bg);
+            border-radius: 16px;
+            padding: 48px;
+            max-width: 560px;
+            width: 100%;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border: none;
             background: var(--surface-section);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease;
+        }
+
+        .form-close:hover {
+            background: rgba(14, 14, 14, 0.1);
+        }
+
+        .form-close svg {
+            width: 20px;
+            height: 20px;
+            color: var(--color-text);
         }
 
         .form-inner {
@@ -1237,7 +1310,7 @@
     <nav class="nav" id="nav">
         <div class="nav-inner">
             <a href="https://fierceinc.com" class="logo">Fierce</a>
-            <a href="#form" class="btn btn-primary">Request Program Details</a>
+            <button class="btn btn-primary open-form-btn">Request Program Details</button>
         </div>
     </nav>
 
@@ -1251,7 +1324,7 @@
                 <p class="hero-description">
                     A new training program built for the leaders navigating reorgs, AI rollouts, growth, and everything in between — without leaving their people behind.
                 </p>
-                <a href="#form" class="btn btn-primary btn-large">Request Program Details</a>
+                <button class="btn btn-primary btn-large open-form-btn">Request Program Details</button>
             </div>
             <div class="hero-video">
                 <div class="phone-video-container">
@@ -1533,13 +1606,19 @@
             <p class="closing-statement">Fierce Change® turns uncertainty into alignment — and alignment into action.</p>
 
             <p class="closing-cta-lead">If your organization is facing change (and whose isn't?), this is the moment.</p>
-            <a href="#form" class="btn btn-primary btn-large">Request Program Details</a>
+            <button class="btn btn-primary btn-large open-form-btn">Request Program Details</button>
         </section>
     </div>
 
-    <!-- SECTION 9: FORM -->
-    <section class="form-section" id="form">
-        <div class="form-inner">
+    <!-- SECTION 9: FORM MODAL -->
+    <div class="form-overlay" id="formOverlay">
+        <section class="form-section">
+            <button class="form-close" id="formClose" aria-label="Close form">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
             <div class="form-header">
                 <h2 class="form-headline">See if Fierce Change® is right for your organization.</h2>
                 <p class="form-subhead">Tell us a little about your team. We'll be in touch within 1 business day with program details, pricing, and next steps.</p>
@@ -1596,8 +1675,8 @@
                 <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">Request Program Details</button>
             </form>
             <p class="form-disclaimer">We'll never share your information. You'll hear from a Fierce team member directly — not an automated sequence.</p>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <!-- SECTION 10: TRUST BAR -->
     <section class="trust-bar">
@@ -1630,6 +1709,40 @@
                 nav.classList.add('scrolled');
             } else {
                 nav.classList.remove('scrolled');
+            }
+        });
+
+        // Form Modal functionality
+        const formOverlay = document.getElementById('formOverlay');
+        const formClose = document.getElementById('formClose');
+        const openFormBtns = document.querySelectorAll('.open-form-btn');
+
+        function openForm() {
+            formOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            document.getElementById('firstName').focus();
+        }
+
+        function closeForm() {
+            formOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        openFormBtns.forEach(btn => {
+            btn.addEventListener('click', openForm);
+        });
+
+        formClose.addEventListener('click', closeForm);
+
+        formOverlay.addEventListener('click', (e) => {
+            if (e.target === formOverlay) {
+                closeForm();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && formOverlay.classList.contains('active')) {
+                closeForm();
             }
         });
 
