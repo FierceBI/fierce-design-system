@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP: Fierce Change® Preview Session | Fierce, Inc.</title>
+    <meta name="description" content="Join us for an exclusive 30-minute preview of Fierce Change® — our most requested program yet. Meet one of our master facilitators and experience the conversation that changes everything.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="RSVP: Fierce Change® Preview Session">
+    <meta property="og:description" content="Join us for an exclusive 30-minute preview of Fierce Change® — our most requested program yet.">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           DESIGN TOKENS
+           ========================================================================== */
+        :root {
+            /* Colors */
+            --color-accent: #eb7525;
+            --color-accent-hover: #d4691f;
+            --gradient-start: #f5a623;
+            --gradient-mid: #eb7525;
+            --gradient-end: #d45f10;
+            --color-bg: #ffffff;
+            --color-text: #0e0e0e;
+            --color-navy: #1C2B3A;
+            --color-muted: #888888;
+            --color-text-inverse: #ffffff;
+            --surface-section: #F5F4F1;
+            --border-light: rgba(14, 14, 14, 0.06);
+            --border-default: rgba(14, 14, 14, 0.1);
+            --shadow-focus: 0 0 0 4px rgba(235, 117, 37, 0.08);
+
+            /* Typography */
+            --font-serif: 'DM Serif Display', serif;
+            --font-sans: 'DM Sans', sans-serif;
+
+            /* Layout */
+            --container-max: 1200px;
+            --container-narrow: 600px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--color-text);
+            background: var(--color-bg);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ==========================================================================
+           NAVIGATION
+           ========================================================================== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .nav-inner {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            color: var(--color-text);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        /* ==========================================================================
+           MAIN CONTENT
+           ========================================================================== */
+        .main {
+            flex: 1;
+            padding: 140px 40px 80px;
+        }
+
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        /* Left Column - Event Info */
+        .event-info {
+            max-width: 520px;
+        }
+
+        .eyebrow {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--color-accent);
+            margin-bottom: 20px;
+        }
+
+        .headline {
+            font-family: var(--font-serif);
+            font-size: clamp(36px, 5vw, 52px);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--color-navy);
+            margin-bottom: 24px;
+        }
+
+        .subhead {
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--color-text);
+            margin-bottom: 40px;
+        }
+
+        .event-details {
+            background: var(--surface-section);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 40px;
+        }
+
+        .event-details-title {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            color: var(--color-navy);
+            margin-bottom: 20px;
+        }
+
+        .event-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .event-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 17px;
+        }
+
+        .event-meta-item svg {
+            width: 24px;
+            height: 24px;
+            color: var(--color-accent);
+            flex-shrink: 0;
+        }
+
+        .event-meta-label {
+            color: var(--color-muted);
+            min-width: 80px;
+        }
+
+        .event-meta-value {
+            color: var(--color-navy);
+            font-weight: 500;
+        }
+
+        .what-to-expect {
+            margin-bottom: 40px;
+        }
+
+        .what-to-expect-title {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            color: var(--color-navy);
+            margin-bottom: 16px;
+        }
+
+        .expect-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .expect-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 17px;
+            line-height: 1.5;
+        }
+
+        .expect-list li svg {
+            width: 20px;
+            height: 20px;
+            color: var(--color-accent);
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .pull-quote {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            line-height: 1.4;
+            color: var(--color-navy);
+            border-left: 3px solid var(--color-accent);
+            padding-left: 24px;
+            font-style: italic;
+        }
+
+        /* Right Column - Form */
+        .form-container {
+            background: var(--surface-section);
+            border-radius: 16px;
+            padding: 40px;
+            position: sticky;
+            top: 120px;
+        }
+
+        .form-title {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            color: var(--color-navy);
+            margin-bottom: 8px;
+        }
+
+        .form-subtitle {
+            font-size: 16px;
+            color: var(--color-muted);
+            margin-bottom: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--color-text);
+            margin-bottom: 8px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            font-family: var(--font-sans);
+            font-size: 16px;
+            border: 1px solid var(--border-default);
+            border-radius: 8px;
+            background: var(--color-bg);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .form-input:hover {
+            border-color: rgba(14, 14, 14, 0.2);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            box-shadow: var(--shadow-focus);
+        }
+
+        .form-input::placeholder {
+            color: var(--color-muted);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 16px 32px;
+            font-family: var(--font-sans);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-text-inverse);
+            background: var(--color-accent);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background: var(--color-accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-note {
+            font-size: 14px;
+            color: var(--color-muted);
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
+        .footer {
+            padding: 40px;
+            border-top: 1px solid var(--border-light);
+            background: var(--color-bg);
+        }
+
+        .footer-inner {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            color: var(--color-text);
+            text-decoration: none;
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            color: var(--color-muted);
+        }
+
+        /* ==========================================================================
+           RESPONSIVE
+           ========================================================================== */
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .form-container {
+                position: static;
+            }
+
+            .event-info {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .nav-inner {
+                padding: 16px 24px;
+            }
+
+            .main {
+                padding: 120px 24px 60px;
+            }
+
+            .event-details {
+                padding: 24px;
+            }
+
+            .form-container {
+                padding: 28px;
+            }
+
+            .footer {
+                padding: 32px 24px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="https://fierceinc.com" class="logo">Fierce</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Left Column - Event Info -->
+            <div class="event-info">
+                <p class="eyebrow">Exclusive Preview Session</p>
+                <h1 class="headline">Experience Fierce Change® — Before Anyone Else</h1>
+                <p class="subhead">Join us for an exclusive 30-minute preview of our most requested program yet — six months in the making, and finally ready to share.</p>
+
+                <div class="event-details">
+                    <h2 class="event-details-title">Session Details</h2>
+                    <div class="event-meta">
+                        <div class="event-meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            <span class="event-meta-label">Date</span>
+                            <span class="event-meta-value">Friday, May 29th</span>
+                        </div>
+                        <div class="event-meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            <span class="event-meta-label">Time</span>
+                            <span class="event-meta-value">8:00 AM Eastern</span>
+                        </div>
+                        <div class="event-meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4"></path>
+                            </svg>
+                            <span class="event-meta-label">Duration</span>
+                            <span class="event-meta-value">30 minutes</span>
+                        </div>
+                        <div class="event-meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            <span class="event-meta-label">Format</span>
+                            <span class="event-meta-value">Live Virtual Session</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="what-to-expect">
+                    <h2 class="what-to-expect-title">What to Expect</h2>
+                    <ul class="expect-list">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Meet one of our master facilitators who helped create this program
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Get a behind-the-scenes look at Fierce Change® methodology
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Ask questions and get answers in real time
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Feel the change you could bring back to your organization
+                        </li>
+                    </ul>
+                </div>
+
+                <p class="pull-quote">"Change doesn't fail because people can't handle it. It falls short when conversations don't build trust."</p>
+            </div>
+
+            <!-- Right Column - Form -->
+            <div class="form-container">
+                <h2 class="form-title">Reserve Your Spot</h2>
+                <p class="form-subtitle">Seats are limited. RSVP to secure yours.</p>
+
+                <form id="rsvpForm">
+                    <div class="form-group">
+                        <label class="form-label" for="firstName">First name</label>
+                        <input type="text" class="form-input" id="firstName" name="firstname" required autocomplete="given-name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="lastName">Last name</label>
+                        <input type="text" class="form-input" id="lastName" name="lastname" required autocomplete="family-name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="email">Work email</label>
+                        <input type="email" class="form-input" id="email" name="email" required autocomplete="email">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="company">Company</label>
+                        <input type="text" class="form-input" id="company" name="company" required autocomplete="organization">
+                    </div>
+
+                    <!-- Hidden UTM fields -->
+                    <input type="hidden" id="utm_source" name="utm_source">
+                    <input type="hidden" id="utm_campaign" name="utm_campaign">
+                    <input type="hidden" id="utm_content" name="utm_content">
+                    <input type="hidden" id="utm_medium" name="utm_medium">
+                    <input type="hidden" id="gclid" name="gclid">
+
+                    <button type="submit" class="btn" id="submitBtn">RSVP Now</button>
+                    <p class="form-note">We'll send you a calendar invite with the session link.</p>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <a href="https://fierceinc.com" class="footer-logo">Fierce</a>
+            <p class="footer-copyright">&copy; 2026 Fierce, Inc.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Capture UTM parameters from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const utmFields = ['utm_source', 'utm_campaign', 'utm_content', 'utm_medium', 'gclid'];
+
+        utmFields.forEach(field => {
+            const value = urlParams.get(field);
+            if (value) {
+                document.getElementById(field).value = value;
+            }
+        });
+
+        // Form submission
+        const form = document.getElementById('rsvpForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+
+            // HubSpot Form API endpoint
+            // TODO: Replace with actual HubSpot portal ID and form GUID for RSVP form
+            const hubspotEndpoint = 'https://api.hsforms.com/submissions/v3/integration/submit/21395487/FORM_GUID_HERE';
+
+            const formData = {
+                fields: [
+                    { name: 'firstname', value: document.getElementById('firstName').value },
+                    { name: 'lastname', value: document.getElementById('lastName').value },
+                    { name: 'email', value: document.getElementById('email').value },
+                    { name: 'company', value: document.getElementById('company').value },
+                    { name: 'utm_source', value: document.getElementById('utm_source').value },
+                    { name: 'utm_campaign', value: document.getElementById('utm_campaign').value },
+                    { name: 'utm_content', value: document.getElementById('utm_content').value },
+                    { name: 'utm_medium', value: document.getElementById('utm_medium').value },
+                    { name: 'gclid', value: document.getElementById('gclid').value }
+                ],
+                context: {
+                    pageUri: window.location.href,
+                    pageName: document.title
+                }
+            };
+
+            try {
+                const response = await fetch(hubspotEndpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    // Success - redirect to thank you page
+                    window.location.href = 'rsvp-thank-you.html';
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+                alert('There was an error submitting the form. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're In — Fierce Change® Preview | Fierce, Inc.</title>
+    <meta name="description" content="You're registered for the Fierce Change® preview session. Check your inbox for the calendar invite.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-accent: #eb7525;
+            --color-accent-hover: #d4691f;
+            --gradient-start: #f5a623;
+            --gradient-mid: #eb7525;
+            --gradient-end: #d45f10;
+            --color-bg: #ffffff;
+            --color-text: #0e0e0e;
+            --color-navy: #1C2B3A;
+            --color-muted: #888888;
+            --surface-section: #F5F4F1;
+            --border-light: rgba(14, 14, 14, 0.06);
+            --font-serif: 'DM Serif Display', serif;
+            --font-sans: 'DM Sans', sans-serif;
+            --container-max: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--color-text);
+            background: var(--color-bg);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .nav-inner {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            color: var(--color-text);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 140px 40px 80px;
+        }
+
+        .thank-you-content {
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .checkmark {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 32px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .checkmark svg {
+            width: 40px;
+            height: 40px;
+            color: white;
+        }
+
+        .thank-you-headline {
+            font-family: var(--font-serif);
+            font-size: clamp(36px, 6vw, 52px);
+            color: var(--color-navy);
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .thank-you-subhead {
+            font-size: 20px;
+            color: var(--color-text);
+            line-height: 1.6;
+            margin-bottom: 48px;
+        }
+
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            margin: 0 auto 48px;
+        }
+
+        .session-reminder {
+            background: var(--surface-section);
+            border-radius: 12px;
+            padding: 32px;
+            text-align: left;
+        }
+
+        .session-reminder-title {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            color: var(--color-navy);
+            margin-bottom: 20px;
+        }
+
+        .session-detail {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 17px;
+            margin-bottom: 12px;
+        }
+
+        .session-detail:last-child {
+            margin-bottom: 0;
+        }
+
+        .session-detail svg {
+            width: 20px;
+            height: 20px;
+            color: var(--color-accent);
+            flex-shrink: 0;
+        }
+
+        .session-detail strong {
+            color: var(--color-navy);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            font-size: 15px;
+            color: var(--color-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--color-accent);
+        }
+
+        .back-link svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 6px;
+            vertical-align: middle;
+        }
+
+        .footer {
+            padding: 40px;
+            border-top: 1px solid var(--border-light);
+            background: var(--color-bg);
+        }
+
+        .footer-inner {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            color: var(--color-text);
+            text-decoration: none;
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            color: var(--color-muted);
+        }
+
+        @media (max-width: 680px) {
+            .nav-inner {
+                padding: 16px 24px;
+            }
+
+            .main {
+                padding: 120px 24px 60px;
+            }
+
+            .checkmark {
+                width: 64px;
+                height: 64px;
+                margin-bottom: 24px;
+            }
+
+            .checkmark svg {
+                width: 32px;
+                height: 32px;
+            }
+
+            .thank-you-subhead {
+                font-size: 18px;
+                margin-bottom: 40px;
+            }
+
+            .session-reminder {
+                padding: 24px;
+            }
+
+            .footer {
+                padding: 32px 24px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="https://fierceinc.com" class="logo">Fierce</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="thank-you-content">
+            <div class="checkmark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+            </div>
+
+            <h1 class="thank-you-headline">You're in.</h1>
+            <p class="thank-you-subhead">Check your inbox for a calendar invite with the session link. We're looking forward to seeing you there.</p>
+
+            <div class="divider"></div>
+
+            <div class="session-reminder">
+                <h2 class="session-reminder-title">Your Session Details</h2>
+                <div class="session-detail">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span><strong>Friday, May 29th</strong> at 8:00 AM Eastern</span>
+                </div>
+                <div class="session-detail">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span><strong>30 minutes</strong> — live virtual session</span>
+                </div>
+                <div class="session-detail">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <span>Calendar invite on its way</span>
+                </div>
+            </div>
+
+            <a href="index.html" class="back-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Learn more about Fierce Change
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <a href="https://fierceinc.com" class="footer-logo">Fierce</a>
+            <p class="footer-copyright">&copy; 2026 Fierce, Inc.</p>
+        </div>
+    </footer>
+</body>
+</html>
