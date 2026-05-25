@@ -162,35 +162,62 @@ If embedding in WordPress via iframe:
 
 ### UTM Passthrough
 
-To pass UTM parameters from WordPress URL into the iframe:
+To pass UTM parameters from WordPress URL into the iframe, place the **script AFTER the iframe** (important for DOM loading):
 
+**Fierce Change Landing Page:**
 ```html
-<script>
-  // Get UTM params from parent page URL
-  const params = new URLSearchParams(window.location.search);
-  const utmParams = ['utm_source', 'utm_campaign', 'utm_content', 'utm_medium', 'utm_term', 'gclid'];
+<iframe
+  id="fierce-change-iframe"
+  src="https://fiercebi.github.io/fierce-design-system/pages/fierce-change/index.html"
+  width="100%"
+  height="4000"
+  style="border:none;">
+</iframe>
 
-  // Build query string for iframe
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const utmParams = ['utm_source', 'utm_campaign', 'utm_content', 'utm_medium', 'gclid'];
   const iframeParams = new URLSearchParams();
+
   utmParams.forEach(param => {
     if (params.has(param)) {
       iframeParams.set(param, params.get(param));
     }
   });
 
-  // Set iframe src with UTM params
-  const baseUrl = 'https://yourdomain.com/fierce-change/';
-  const iframeSrc = iframeParams.toString() ? `${baseUrl}?${iframeParams.toString()}` : baseUrl;
-  document.getElementById('fierce-change-iframe').src = iframeSrc;
+  if (iframeParams.toString()) {
+    const baseUrl = 'https://fiercebi.github.io/fierce-design-system/pages/fierce-change/index.html';
+    document.getElementById('fierce-change-iframe').src = baseUrl + '?' + iframeParams.toString();
+  }
 </script>
+```
 
+**Fierce Change RSVP Page:**
+```html
 <iframe
-  id="fierce-change-iframe"
-  src="https://yourdomain.com/fierce-change/"
+  id="fierce-rsvp-iframe"
+  src="https://fiercebi.github.io/fierce-design-system/pages/fierce-change/rsvp.html"
   width="100%"
-  height="4000"
-  frameborder="0"
-></iframe>
+  height="900"
+  style="border:none;">
+</iframe>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const utmParams = ['utm_source', 'utm_campaign', 'utm_content', 'utm_medium', 'gclid'];
+  const iframeParams = new URLSearchParams();
+
+  utmParams.forEach(param => {
+    if (params.has(param)) {
+      iframeParams.set(param, params.get(param));
+    }
+  });
+
+  if (iframeParams.toString()) {
+    const baseUrl = 'https://fiercebi.github.io/fierce-design-system/pages/fierce-change/rsvp.html';
+    document.getElementById('fierce-rsvp-iframe').src = baseUrl + '?' + iframeParams.toString();
+  }
+</script>
 ```
 
 ### Height Considerations

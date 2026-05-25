@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fierce TTT LinkedIn Carousel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gradient-start: #f5a623;
+            --gradient-mid: #eb7525;
+            --gradient-end: #d45f10;
+            --color-dark-bg: #0a0a0a;
+            --font-serif: 'DM Serif Display', serif;
+            --font-sans: 'DM Sans', sans-serif;
+            --font-elegant: 'Cormorant Garamond', serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: #0a0a0a;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .instructions {
+            background: #111;
+            padding: 24px 32px;
+            border-radius: 12px;
+            max-width: 1080px;
+            width: 100%;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .instructions h1 {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            margin-bottom: 12px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .instructions code {
+            background: rgba(255,255,255,0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        /* ============================================
+           SLIDE BASE
+           ============================================ */
+        .slide {
+            width: 1080px;
+            height: 1080px;
+            background: var(--color-dark-bg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-mid) 50%, var(--gradient-end) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ============================================
+           WATERMARK GRID
+           ============================================ */
+        .watermark-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 30px 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .watermark-row {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .watermark-row:nth-child(odd) {
+            transform: translateX(-100px);
+        }
+
+        .watermark-row:nth-child(even) {
+            transform: translateX(100px);
+        }
+
+        .watermark {
+            font-family: var(--font-serif);
+            font-size: 130px;
+            font-style: italic;
+            line-height: 1;
+            color: rgba(255, 255, 255, 0.03);
+            text-transform: capitalize;
+            letter-spacing: -0.02em;
+        }
+
+        /* ============================================
+           COVER SLIDE
+           ============================================ */
+        .cover-slide {
+            background: #0e0e0e;
+        }
+
+        .cover-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('cover-bg.jpg');
+            background-size: cover;
+            background-position: center top;
+            filter: brightness(0.5) saturate(1.1) sepia(0.1);
+        }
+
+        .cover-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg,
+                rgba(14, 14, 14, 0.4) 0%,
+                rgba(14, 14, 14, 0.3) 40%,
+                rgba(14, 14, 14, 0.7) 100%
+            );
+        }
+
+        .scan-lines-diagonal {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent 0px,
+                transparent 4px,
+                rgba(0, 0, 0, 0.7) 4px,
+                rgba(0, 0, 0, 0.7) 6px,
+                transparent 6px,
+                transparent 12px,
+                rgba(0, 0, 0, 0.5) 12px,
+                rgba(0, 0, 0, 0.5) 14px,
+                transparent 14px,
+                transparent 24px,
+                rgba(0, 0, 0, 0.6) 24px,
+                rgba(0, 0, 0, 0.6) 27px,
+                transparent 27px,
+                transparent 40px
+            );
+            pointer-events: none;
+            z-index: 2;
+            -webkit-mask-image: linear-gradient(
+                135deg,
+                black 0%,
+                black 35%,
+                rgba(0,0,0,0.6) 45%,
+                rgba(0,0,0,0.3) 55%,
+                transparent 65%,
+                transparent 100%
+            );
+            mask-image: linear-gradient(
+                135deg,
+                black 0%,
+                black 35%,
+                rgba(0,0,0,0.6) 45%,
+                rgba(0,0,0,0.3) 55%,
+                transparent 65%,
+                transparent 100%
+            );
+        }
+
+        .cover-eyebrow {
+            position: absolute;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--font-serif);
+            font-size: 26px;
+            z-index: 5;
+            letter-spacing: 0.02em;
+        }
+
+        .cover-main {
+            position: absolute;
+            left: 80px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            z-index: 4;
+        }
+
+        .cover-number {
+            font-family: var(--font-serif);
+            font-size: 500px;
+            line-height: 0.8;
+            text-shadow: 0 0 100px rgba(235, 117, 37, 0.3);
+        }
+
+        .cover-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-top: 20px;
+            margin-left: 30px;
+        }
+
+        .cover-title-line {
+            font-family: var(--font-serif);
+            font-size: 64px;
+            line-height: 1.1;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+        }
+
+        .cover-title-elegant {
+            font-family: var(--font-elegant);
+            font-style: italic;
+            font-weight: 300;
+            font-size: 85px;
+            line-height: 1;
+            margin-top: 5px;
+            letter-spacing: 0.02em;
+        }
+
+        /* ============================================
+           GLASS CARD
+           ============================================ */
+        .glass-card {
+            position: relative;
+            width: 580px;
+            height: 580px;
+            border-radius: 44px;
+            background: linear-gradient(
+                145deg,
+                rgba(255, 255, 255, 0.05) 0%,
+                rgba(255, 255, 255, 0.02) 100%
+            );
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                inset 0 0 40px rgba(255, 255, 255, 0.03),
+                0 30px 60px rgba(0, 0, 0, 0.5);
+            z-index: 2;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 44px;
+            padding: 1.5px;
+            background: linear-gradient(
+                145deg,
+                rgba(245, 166, 35, 0.8) 0%,
+                rgba(235, 117, 37, 0.5) 20%,
+                rgba(212, 95, 16, 0.2) 40%,
+                rgba(255, 255, 255, 0.1) 70%,
+                rgba(255, 255, 255, 0.05) 100%
+            );
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .glass-card::after {
+            content: '';
+            position: absolute;
+            top: 1px;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+        }
+
+        /* ============================================
+           CONTENT SLIDES
+           ============================================ */
+        .content-number {
+            font-family: var(--font-serif);
+            font-size: 110px;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .content-title {
+            font-family: var(--font-serif);
+            font-size: 38px;
+            line-height: 1.25;
+            text-align: center;
+            color: #fff;
+            max-width: 420px;
+        }
+
+        .content-subtitle {
+            font-family: var(--font-sans);
+            font-size: 20px;
+            margin-top: 16px;
+            color: rgba(255,255,255,0.45);
+            text-align: center;
+        }
+
+        /* ============================================
+           SOLUTION SLIDE
+           ============================================ */
+        .solution-card {
+            width: 660px;
+            height: 600px;
+            padding: 65px;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .solution-eyebrow {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.35);
+            margin-bottom: 24px;
+        }
+
+        .solution-title {
+            font-family: var(--font-serif);
+            font-size: 38px;
+            line-height: 1.25;
+            color: #fff;
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        .modules-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-bottom: 36px;
+        }
+
+        .module-item {
+            font-family: var(--font-serif);
+            font-size: 34px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .module-arrow {
+            font-size: 24px;
+            color: rgba(255,255,255,0.35);
+        }
+
+        .plus-content {
+            font-size: 17px;
+            color: rgba(255,255,255,0.4);
+            line-height: 1.6;
+            max-width: 440px;
+        }
+
+        /* ============================================
+           CTA SLIDE
+           ============================================ */
+        .cta-card {
+            width: 600px;
+            height: 440px;
+            text-align: center;
+        }
+
+        .cta-eyebrow {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.35);
+            margin-bottom: 24px;
+        }
+
+        .cta-title {
+            font-family: var(--font-serif);
+            font-size: 54px;
+            line-height: 1.15;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .cta-date {
+            font-family: var(--font-serif);
+            font-size: 72px;
+            line-height: 1.1;
+        }
+
+        /* ============================================
+           PRINT STYLES
+           ============================================ */
+        @media print {
+            body { padding: 0; background: white; }
+            .slide { page-break-after: always; margin: 0; }
+            .instructions { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="instructions">
+        <h1>TTT LinkedIn Carousel — Export Instructions</h1>
+        <p>To export: <code>Cmd + Shift + 4</code> then <code>Space</code> to capture each slide.</p>
+    </div>
+
+    <!-- ==========================================
+         SLIDE 1: COVER
+         ========================================== -->
+    <div class="slide cover-slide">
+        <div class="cover-bg"></div>
+        <div class="cover-overlay"></div>
+        <div class="scan-lines-diagonal"></div>
+
+        <p class="cover-eyebrow gradient-text">Train the Trainer</p>
+
+        <div class="cover-main">
+            <div class="cover-number gradient-text">5</div>
+            <div class="cover-text">
+                <span class="cover-title-line">topics</span>
+                <span class="cover-title-line">your trainers</span>
+                <span class="cover-title-elegant gradient-text">need now</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         SLIDE 2
+         ========================================== -->
+    <div class="slide">
+        <div class="watermark-grid">
+            <div class="watermark-row">
+                <span class="watermark">Trust</span>
+                <span class="watermark">Candor</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">Grace</span>
+                <span class="watermark">Listening</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">Presence</span>
+                <span class="watermark">Feedback</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">Bridge</span>
+                <span class="watermark">Connect</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">Generations</span>
+                <span class="watermark">Respect</span>
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <div class="content-number gradient-text">1</div>
+            <h2 class="content-title">How to give feedback across generations</h2>
+            <p class="content-subtitle">without it landing wrong</p>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         SLIDE 3
+         ========================================== -->
+    <div class="slide">
+        <div class="watermark-grid">
+            <div class="watermark-row">
+                <span class="watermark">Awareness</span>
+                <span class="watermark">Insight</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">Truth</span>
+                <span class="watermark">Clarity</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">Reflect</span>
+                <span class="watermark">Growth</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">Discover</span>
+                <span class="watermark">Learn</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">Vision</span>
+                <span class="watermark">See</span>
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <div class="content-number gradient-text">2</div>
+            <h2 class="content-title">How to help a leader see their blind spots</h2>
+            <p class="content-subtitle">without them shutting down</p>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         SLIDE 4
+         ========================================== -->
+    <div class="slide">
+        <div class="watermark-grid">
+            <div class="watermark-row">
+                <span class="watermark">Commit</span>
+                <span class="watermark">Ownership</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">Trust</span>
+                <span class="watermark">Resilience</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">Courage</span>
+                <span class="watermark">Strength</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">Deliver</span>
+                <span class="watermark">Follow</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">Promise</span>
+                <span class="watermark">Results</span>
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <div class="content-number gradient-text">3</div>
+            <h2 class="content-title">How to build accountability</h2>
+            <p class="content-subtitle">when everyone's burned out</p>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         SLIDE 5
+         ========================================== -->
+    <div class="slide">
+        <div class="watermark-grid">
+            <div class="watermark-row">
+                <span class="watermark">Influence</span>
+                <span class="watermark">Impact</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">Voice</span>
+                <span class="watermark">Presence</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">Lead</span>
+                <span class="watermark">Inspire</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">Guide</span>
+                <span class="watermark">Empower</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">Persuade</span>
+                <span class="watermark">Move</span>
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <div class="content-number gradient-text">4</div>
+            <h2 class="content-title">How to coach influence</h2>
+            <p class="content-subtitle">when no one has positional power</p>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         SLIDE 6
+         ========================================== -->
+    <div class="slide">
+        <div class="watermark-grid">
+            <div class="watermark-row">
+                <span class="watermark">Empathy</span>
+                <span class="watermark">Depth</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">Feel</span>
+                <span class="watermark">Connect</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">Hold</span>
+                <span class="watermark">Space</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">Heart</span>
+                <span class="watermark">Soul</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">Vulnerable</span>
+                <span class="watermark">Human</span>
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <div class="content-number gradient-text">5</div>
+            <h2 class="content-title">How to hold space for emotional complexity</h2>
+            <p class="content-subtitle">without becoming a therapist</p>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         SLIDE 7: SOLUTION
+         ========================================== -->
+    <div class="slide">
+        <div class="watermark-grid">
+            <div class="watermark-row">
+                <span class="watermark">Transform</span>
+                <span class="watermark">Evolve</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">Grow</span>
+                <span class="watermark">Expand</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">Build</span>
+                <span class="watermark">Fierce</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">Change</span>
+                <span class="watermark">Rise</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">New</span>
+                <span class="watermark">Better</span>
+            </div>
+        </div>
+
+        <div class="glass-card solution-card">
+            <p class="solution-eyebrow">The Solution</p>
+            <h2 class="solution-title">We expanded Train the Trainer to address all five.</h2>
+            <div class="modules-list">
+                <div class="module-item">
+                    <span class="module-arrow">→</span>
+                    <span class="gradient-text">Emotional Intelligence</span>
+                </div>
+                <div class="module-item">
+                    <span class="module-arrow">→</span>
+                    <span class="gradient-text">Generations</span>
+                </div>
+            </div>
+            <p class="plus-content">Plus deeper content on Accountability, Resilience & Influence</p>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         SLIDE 8: CTA
+         ========================================== -->
+    <div class="slide">
+        <div class="watermark-grid">
+            <div class="watermark-row">
+                <span class="watermark">Begin</span>
+                <span class="watermark">Launch</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">Start</span>
+                <span class="watermark">Certify</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">Lead</span>
+                <span class="watermark">Fierce</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">Join</span>
+                <span class="watermark">Now</span>
+            </div>
+            <div class="watermark-row">
+                <span class="watermark">Ready</span>
+                <span class="watermark">Go</span>
+            </div>
+        </div>
+
+        <div class="glass-card cta-card">
+            <p class="cta-eyebrow">Now Enrolling</p>
+            <h2 class="cta-title">Delivery starts</h2>
+            <h2 class="cta-date gradient-text">June 1</h2>
+        </div>
+    </div>
+
+</body>
+</html>
